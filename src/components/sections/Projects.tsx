@@ -67,9 +67,9 @@ export default function Projects() {
       style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
     >
       {/* Rule + label */}
-      <FadeIn>
+      <FadeIn variant="left">
         <div className="border-t border-black/15 mb-12">
-          <span className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase text-black/30">
+          <span className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase text-accent/60">
             03 // Projects
           </span>
         </div>
@@ -82,16 +82,13 @@ export default function Projects() {
         </h2>
       </FadeIn>
 
-      {/* Project rows */}
-      <FadeIn delay={0.2}>
-        <div className="border-t border-black/15">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b border-black/10"
-            >
-              {/* Index */}
-              <span className="text-[10px] tracking-[0.2em] text-black/25 pt-px">
+      {/* Project rows — each staggers in individually */}
+      <div className="border-t border-black/15">
+        {projects.map((project, i) => (
+          <FadeIn key={project.id} delay={i * 0.06}>
+            <div className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b border-black/10">
+              {/* Index — accent colored */}
+              <span className="text-[10px] tracking-[0.2em] text-accent pt-px">
                 {project.index}
               </span>
 
@@ -115,16 +112,16 @@ export default function Projects() {
                 {project.status}
               </span>
 
-              {/* Description — desktop only, full width below */}
+              {/* Description — desktop only */}
               <div className="hidden md:block col-start-2 col-end-5">
                 <p className="text-[12px] text-black/40 leading-relaxed mt-2 max-w-xl">
                   {project.description}
                 </p>
               </div>
             </div>
-          ))}
-        </div>
-      </FadeIn>
+          </FadeIn>
+        ))}
+      </div>
     </section>
   );
 }
