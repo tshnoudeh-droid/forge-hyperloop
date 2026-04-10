@@ -1,5 +1,7 @@
 "use client";
 
+import FadeIn from "@/components/FadeIn";
+
 export default function Hero() {
   return (
     <section
@@ -8,25 +10,23 @@ export default function Hero() {
       style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
     >
       {/* Section label */}
-      <div>
+      <FadeIn delay={0.1}>
         <span className="text-[10px] tracking-[0.35em] uppercase text-black/30">
           01 // Overview
         </span>
-      </div>
+      </FadeIn>
 
       {/* Main headline */}
-      <div>
-        <h1
-          className="text-[clamp(4rem,11vw,10rem)] font-medium leading-[0.88] tracking-[-0.02em] text-black uppercase"
-        >
+      <FadeIn delay={0.2}>
+        <h1 className="text-[clamp(4rem,11vw,10rem)] font-medium leading-[0.88] tracking-[-0.02em] text-black uppercase">
           Forge
           <br />
           Hyperloop
         </h1>
-      </div>
+      </FadeIn>
 
       {/* Bottom row */}
-      <div>
+      <FadeIn delay={0.35}>
         <div className="border-t border-black/15 mb-8" />
         <div className="flex items-end justify-between">
           <p className="text-sm tracking-[0.03em] text-black/50 leading-relaxed max-w-xs">
@@ -41,7 +41,7 @@ export default function Hero() {
             <div className="w-px h-14 bg-black/15" />
           </div>
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }

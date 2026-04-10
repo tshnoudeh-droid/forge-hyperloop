@@ -1,5 +1,7 @@
 "use client";
 
+import FadeIn from "@/components/FadeIn";
+
 interface Project {
   id: string;
   index: string;
@@ -65,58 +67,64 @@ export default function Projects() {
       style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
     >
       {/* Rule + label */}
-      <div className="border-t border-black/15 mb-12">
-        <span className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase text-black/30">
-          03 // Projects
-        </span>
-      </div>
+      <FadeIn>
+        <div className="border-t border-black/15 mb-12">
+          <span className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase text-black/30">
+            03 // Projects
+          </span>
+        </div>
+      </FadeIn>
 
       {/* Section heading */}
-      <h2 className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] text-black mb-16">
-        Active systems.
-      </h2>
+      <FadeIn delay={0.1}>
+        <h2 className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] text-black mb-16">
+          Active systems.
+        </h2>
+      </FadeIn>
 
       {/* Project rows */}
-      <div className="border-t border-black/15">
-        {projects.map((project) => (
-          <div
-            key={project.id}
-            className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b border-black/10"
-          >
-            {/* Index */}
-            <span className="text-[10px] tracking-[0.2em] text-black/25 pt-px">
-              {project.index}
-            </span>
+      <FadeIn delay={0.2}>
+        <div className="border-t border-black/15">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b border-black/10"
+            >
+              {/* Index */}
+              <span className="text-[10px] tracking-[0.2em] text-black/25 pt-px">
+                {project.index}
+              </span>
 
-            {/* Name + description */}
-            <div>
-              <p className="text-[13px] font-medium text-black mb-1.5 group-hover:text-accent transition-colors duration-200">
-                {project.name}
-              </p>
-              <p className="text-[12px] text-black/45 leading-relaxed md:hidden">
-                {project.description}
-              </p>
+              {/* Name + description */}
+              <div>
+                <p className="text-[13px] font-medium text-black mb-1.5 group-hover:text-accent transition-colors duration-200">
+                  {project.name}
+                </p>
+                <p className="text-[12px] text-black/45 leading-relaxed md:hidden">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Discipline — desktop only */}
+              <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-black/35 self-start pt-px">
+                {project.discipline}
+              </span>
+
+              {/* Status — desktop only */}
+              <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-black/35 self-start pt-px text-right">
+                {project.status}
+              </span>
+
+              {/* Description — desktop only, full width below */}
+              <div className="hidden md:block col-start-2 col-end-5">
+                <p className="text-[12px] text-black/40 leading-relaxed mt-2 max-w-xl">
+                  {project.description}
+                </p>
+              </div>
             </div>
-
-            {/* Discipline — desktop only */}
-            <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-black/35 self-start pt-px">
-              {project.discipline}
-            </span>
-
-            {/* Status — desktop only */}
-            <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-black/35 self-start pt-px text-right">
-              {project.status}
-            </span>
-
-            {/* Description — desktop only, full width below */}
-            <div className="hidden md:block col-start-2 col-end-5">
-              <p className="text-[12px] text-black/40 leading-relaxed mt-2 max-w-xl">
-                {project.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </FadeIn>
     </section>
   );
 }
