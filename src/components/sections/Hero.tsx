@@ -13,12 +13,12 @@ export default function Hero() {
     <section
       ref={ref}
       id="hero"
-      className="relative min-h-screen flex flex-col justify-between px-8 pt-32 pb-12 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-between pt-32 pb-12 overflow-hidden"
       style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
     >
       {/* Section label */}
       <FadeIn delay={0.1} variant="left">
-        <span className="text-[10px] tracking-[0.35em] uppercase text-accent/60">
+        <span className="px-8 text-[10px] tracking-[0.35em] uppercase text-accent/60">
           01 // Overview
         </span>
       </FadeIn>
@@ -26,7 +26,7 @@ export default function Hero() {
       {/* Main headline — parallax on scroll */}
       <motion.div style={{ y }}>
         <FadeIn delay={0.2}>
-          <h1 className="text-[clamp(4rem,11vw,10rem)] font-medium leading-[0.88] tracking-[-0.02em] text-black dark:text-white uppercase">
+          <h1 className="text-[17.5vw] font-medium leading-[0.88] tracking-[-0.02em] text-black dark:text-white uppercase">
             Forge
             <br />
             Hyperloop
@@ -36,6 +36,7 @@ export default function Hero() {
 
       {/* Bottom row */}
       <FadeIn delay={0.35}>
+        <div className="px-8">
         <div className="border-t border-accent/20 dark:border-accent/20 mb-8" />
         <div className="flex items-end justify-between">
           <p className="text-sm tracking-[0.03em] text-black/50 dark:text-white/50 leading-relaxed max-w-xs">
@@ -49,6 +50,7 @@ export default function Hero() {
             </span>
             <div className="w-px h-14 bg-accent/40" />
           </div>
+        </div>
         </div>
       </FadeIn>
     </section>
