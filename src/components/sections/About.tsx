@@ -18,7 +18,7 @@ export default function About() {
     >
       {/* Rule + label */}
       <FadeIn variant="left">
-        <div className="border-t border-black/15 mb-12">
+        <div className="border-t border-accent/20 mb-12">
           <span className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase text-accent/60">
             02 // About
           </span>
@@ -31,12 +31,12 @@ export default function About() {
         {/* Copy */}
         <FadeIn delay={0.1}>
           <div>
-            <h2 className="text-3xl md:text-[2.6rem] font-medium leading-[1.1] tracking-[-0.015em] text-black mb-10">
+            <h2 className="text-3xl md:text-[2.6rem] font-medium leading-[1.1] tracking-[-0.015em] text-black dark:text-white mb-10">
               Engineering the future
               <br />
               of ground transport.
             </h2>
-            <div className="space-y-5 text-[13px] text-black/55 leading-[1.75] max-w-sm">
+            <div className="space-y-5 text-[13px] text-black/55 dark:text-white/55 leading-[1.75] max-w-sm">
               <p>
                 Forge Hyperloop is an independent engineering project focused on
                 designing and testing competitive hyperloop technology. I build
@@ -60,13 +60,13 @@ export default function About() {
         {/* Stats table */}
         <FadeIn delay={0.2}>
           <div className="flex flex-col justify-start pt-1">
-            <div className="border-t border-black/15">
+            <div className="border-t border-accent/20">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex items-baseline justify-between py-5 border-b border-black/10"
+                  className="flex items-baseline justify-between py-5 border-b border-black/10 dark:border-white/10"
                 >
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-black/35">
+                  <span className="text-[10px] tracking-[0.25em] uppercase text-accent/40">
                     {stat.label}
                   </span>
                   <span className="text-[13px] font-medium text-accent">

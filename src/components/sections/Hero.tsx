@@ -26,7 +26,7 @@ export default function Hero() {
       {/* Main headline — parallax on scroll */}
       <motion.div style={{ y }}>
         <FadeIn delay={0.2}>
-          <h1 className="text-[clamp(4rem,11vw,10rem)] font-medium leading-[0.88] tracking-[-0.02em] text-black uppercase">
+          <h1 className="text-[clamp(4rem,11vw,10rem)] font-medium leading-[0.88] tracking-[-0.02em] text-black dark:text-white uppercase">
             Forge
             <br />
             Hyperloop
@@ -36,9 +36,9 @@ export default function Hero() {
 
       {/* Bottom row */}
       <FadeIn delay={0.35}>
-        <div className="border-t border-black/15 mb-8" />
+        <div className="border-t border-accent/20 dark:border-accent/20 mb-8" />
         <div className="flex items-end justify-between">
-          <p className="text-sm tracking-[0.03em] text-black/50 leading-relaxed max-w-xs">
+          <p className="text-sm tracking-[0.03em] text-black/50 dark:text-white/50 leading-relaxed max-w-xs">
             One engineer. One mission.
             <br />
             Building the next generation of hyperloop systems.

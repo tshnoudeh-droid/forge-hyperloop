@@ -68,7 +68,7 @@ export default function Projects() {
     >
       {/* Rule + label */}
       <FadeIn variant="left">
-        <div className="border-t border-black/15 mb-12">
+        <div className="border-t border-accent/20 mb-12">
           <span className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase text-accent/60">
             03 // Projects
           </span>
@@ -77,44 +77,44 @@ export default function Projects() {
 
       {/* Section heading */}
       <FadeIn delay={0.1}>
-        <h2 className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] text-black mb-16">
+        <h2 className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] text-black dark:text-white mb-16">
           Active systems.
         </h2>
       </FadeIn>
 
-      {/* Project rows — each staggers in individually */}
-      <div className="border-t border-black/15">
+      {/* Project rows */}
+      <div className="border-t border-accent/20">
         {projects.map((project, i) => (
           <FadeIn key={project.id} delay={i * 0.06}>
-            <div className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b border-black/10">
-              {/* Index — accent colored */}
+            <div className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b border-black/10 dark:border-white/10">
+              {/* Index */}
               <span className="text-[10px] tracking-[0.2em] text-accent pt-px">
                 {project.index}
               </span>
 
               {/* Name + description */}
               <div>
-                <p className="text-[13px] font-medium text-black mb-1.5 group-hover:text-accent transition-colors duration-200">
+                <p className="text-[13px] font-medium text-black dark:text-white mb-1.5 group-hover:text-accent transition-colors duration-200">
                   {project.name}
                 </p>
-                <p className="text-[12px] text-black/45 leading-relaxed md:hidden">
+                <p className="text-[12px] text-black/45 dark:text-white/45 leading-relaxed md:hidden">
                   {project.description}
                 </p>
               </div>
 
               {/* Discipline — desktop only */}
-              <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-black/35 self-start pt-px">
+              <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-accent/40 self-start pt-px">
                 {project.discipline}
               </span>
 
               {/* Status — desktop only */}
-              <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-black/35 self-start pt-px text-right">
+              <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-accent/40 self-start pt-px text-right">
                 {project.status}
               </span>
 
               {/* Description — desktop only */}
               <div className="hidden md:block col-start-2 col-end-5">
-                <p className="text-[12px] text-black/40 leading-relaxed mt-2 max-w-xl">
+                <p className="text-[12px] text-black/40 dark:text-white/40 leading-relaxed mt-2 max-w-xl">
                   {project.description}
                 </p>
               </div>
