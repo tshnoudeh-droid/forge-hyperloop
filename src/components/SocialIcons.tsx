@@ -67,7 +67,7 @@ export default function SocialIcons() {
           aria-label={link.label}
           target={link.external ? "_blank" : undefined}
           rel={link.external ? "noopener noreferrer" : undefined}
-          className="text-black/30 hover:text-accent transition-colors duration-200"
+          className="text-black/30 dark:text-white/30 hover:text-accent transition-colors duration-200"
           title={link.label}
         >
           {link.icon}
