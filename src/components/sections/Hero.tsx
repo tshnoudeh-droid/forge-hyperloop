@@ -26,10 +26,8 @@ export default function Hero() {
       {/* Main headline — parallax on scroll */}
       <motion.div style={{ y }}>
         <FadeIn delay={0.2}>
-          <h1 className="text-[17.5vw] font-medium leading-[0.88] tracking-[-0.02em] text-black dark:text-white uppercase">
-            Forge
-            <br />
-            Hyperloop
+          <h1 className="text-[9.5vw] font-medium leading-[0.88] tracking-[-0.02em] text-black dark:text-white uppercase whitespace-nowrap">
+            Forge Hyperloop
           </h1>
         </FadeIn>
       </motion.div>
