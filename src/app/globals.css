@@ -3,10 +3,56 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-black: #0A0A0A;
-  --color-white: #FFFFFF;
-  --color-accent: #C4A882;
+  --font-serif: "Libre Baskerville", Georgia, serif;
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", monospace;
+  --color-accent: #C3A984;
+}
+
+/* Dark mode (default) */
+:root {
+  --bg: #0E0E0C;
+  --bg-2: #161614;
+  --bg-3: #1C1C1A;
+  --text: #ffffff;
+  --text-muted: rgba(203, 201, 196, 0.6);
+  --text-subtle: rgba(203, 201, 196, 0.3);
+  --accent: #C3A984;
+  --accent-dim: rgba(195, 169, 132, 0.3);
+  --panel-bg: rgba(14, 14, 12, 0.75);
+
+  /* Hero per-mode values — differ between dark and light */
+  --hero-glow: rgba(195, 169, 132, 0.07);
+  --hero-label: rgba(195, 169, 132, 0.75);
+  --hero-divider: rgba(195, 169, 132, 0.5);
+
+  /* Globe tokens — no Globe component yet, reserved for future use */
+  --globe-arc-idle: rgba(195, 169, 132, 0.95);
+  --globe-arc-hover: rgba(255, 255, 255, 0.95);
+  --globe-city: rgba(195, 169, 132, 0.95);
+  --globe-label: rgba(255, 255, 255, 0.92);
+  --globe-atmo: #1a3a6e;
+  --globe-panel-border: rgba(195, 169, 132, 0.25);
+  --globe-tooltip-border: rgba(195, 169, 132, 0.25);
+}
+
+/* Light mode overrides */
+.light {
+  --bg: #FFFFFF;
+  --bg-2: #F5F3F0;
+  --bg-3: #EAE7E2;
+  --text: #0E0E0C;
+  --text-muted: rgba(14, 14, 12, 0.5);
+  --text-subtle: rgba(14, 14, 12, 0.28);
+  --accent: #C3A984;
+  --accent-dim: rgba(195, 169, 132, 0.25);
+  --panel-bg: rgba(255, 255, 255, 0.88);
+
+  --hero-glow: rgba(195, 169, 132, 0.09);
+  --hero-label: rgba(195, 169, 132, 0.85);
+  --hero-divider: rgba(195, 169, 132, 0.4);
+
+  --globe-atmo: #4a90d9;
 }
 
 *,
@@ -20,14 +66,9 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #FFFFFF;
-  color: #0A0A0A;
+  font-family: var(--font-libre-baskerville), "Libre Baskerville", Georgia, serif;
+  background-color: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.dark body {
-  background-color: #0A0A0A;
-  color: #FFFFFF;
 }
