@@ -64,12 +64,14 @@ export default function Projects() {
     <section
       id="projects"
       className="min-h-screen flex flex-col justify-center px-8 py-24"
-      style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
     >
       {/* Rule + label */}
       <FadeIn variant="left">
-        <div className="border-t border-accent/20 mb-12">
-          <span className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase text-accent/60">
+        <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
+          <span
+            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase"
+            style={{ color: "var(--text-subtle)" }}
+          >
             03 // Projects
           </span>
         </div>
@@ -77,44 +79,68 @@ export default function Projects() {
 
       {/* Section heading */}
       <FadeIn delay={0.1}>
-        <h2 className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] text-black dark:text-white mb-16">
+        <h2
+          className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] mb-16"
+          style={{ color: "var(--text)" }}
+        >
           Active systems.
         </h2>
       </FadeIn>
 
       {/* Project rows */}
-      <div className="border-t border-accent/20">
+      <div className="border-t" style={{ borderColor: "var(--accent-dim)" }}>
         {projects.map((project, i) => (
           <FadeIn key={project.id} delay={i * 0.06}>
-            <div className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b border-black/10 dark:border-white/10">
+            <div
+              className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b"
+              style={{ borderColor: "var(--accent-dim)" }}
+            >
               {/* Index */}
-              <span className="text-[10px] tracking-[0.2em] text-accent pt-px">
+              <span
+                className="text-[10px] tracking-[0.2em] pt-px"
+                style={{ color: "var(--accent)" }}
+              >
                 {project.index}
               </span>
 
               {/* Name + description */}
               <div>
-                <p className="text-[13px] font-medium text-black dark:text-white mb-1.5 group-hover:text-accent transition-colors duration-200">
+                <p
+                  className="text-[13px] font-medium mb-1.5 transition-colors duration-200 group-hover:text-accent"
+                  style={{ color: "var(--text)" }}
+                >
                   {project.name}
                 </p>
-                <p className="text-[12px] text-black/45 dark:text-white/45 leading-relaxed md:hidden">
+                <p
+                  className="text-[12px] leading-relaxed md:hidden"
+                  style={{ color: "var(--text-muted)" }}
+                >
                   {project.description}
                 </p>
               </div>
 
               {/* Discipline — desktop only */}
-              <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-accent/40 self-start pt-px">
+              <span
+                className="hidden md:block text-[10px] tracking-[0.15em] uppercase self-start pt-px"
+                style={{ color: "var(--text-subtle)" }}
+              >
                 {project.discipline}
               </span>
 
               {/* Status — desktop only */}
-              <span className="hidden md:block text-[10px] tracking-[0.15em] uppercase text-accent/40 self-start pt-px text-right">
+              <span
+                className="hidden md:block text-[10px] tracking-[0.15em] uppercase self-start pt-px text-right"
+                style={{ color: "var(--text-subtle)" }}
+              >
                 {project.status}
               </span>
 
               {/* Description — desktop only */}
               <div className="hidden md:block col-start-2 col-end-5">
-                <p className="text-[12px] text-black/40 dark:text-white/40 leading-relaxed mt-2 max-w-xl">
+                <p
+                  className="text-[12px] leading-relaxed mt-2 max-w-xl"
+                  style={{ color: "var(--text-muted)" }}
+                >
                   {project.description}
                 </p>
               </div>

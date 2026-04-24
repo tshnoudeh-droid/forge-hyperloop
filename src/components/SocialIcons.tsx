@@ -56,10 +56,7 @@ const links: SocialLink[] = [
 
 export default function SocialIcons() {
   return (
-    <div
-      className="flex items-center gap-6"
-      style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-    >
+    <div className="flex items-center gap-6">
       {links.map((link) => (
         <a
           key={link.label}
@@ -67,7 +64,8 @@ export default function SocialIcons() {
           aria-label={link.label}
           target={link.external ? "_blank" : undefined}
           rel={link.external ? "noopener noreferrer" : undefined}
-          className="text-black/30 dark:text-white/30 hover:text-accent transition-colors duration-200"
+          className="hover:text-accent transition-colors duration-200"
+          style={{ color: "var(--text-subtle)" }}
           title={link.label}
         >
           {link.icon}
