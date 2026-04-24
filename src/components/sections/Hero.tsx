@@ -9,7 +9,6 @@ const GLSLHills = dynamic(
   () => import("@/components/GLSLHills").then((m) => m.GLSLHills),
   { ssr: false }
 );
-const HeroGlobe = dynamic(() => import("@/components/HeroGlobe"), { ssr: false });
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -23,20 +22,15 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-between pt-32 pb-12 overflow-hidden"
       style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
     >
-      {/* Layer 0: GLSL Hills */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-        <GLSLHills width="100%" height="100%" speed={0.4} />
+      {/* GLSL Hills — full background, heavy */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.62]">
+        <GLSLHills width="100%" height="100%" />
       </div>
 
-      {/* Layer 1: Globe centered */}
-      <div className="absolute inset-0 z-[1] flex items-center justify-center pointer-events-none">
-        <HeroGlobe size={680} />
-      </div>
-
-      {/* Content above layers */}
+      {/* Content */}
       <div className="relative z-10 flex flex-col justify-between min-h-screen pt-32 pb-12">
         {/* Section label */}
-        <FadeIn delay={0.1} variant="left">
+        <FadeIn delay={0.85} variant="left">
           <span className="px-8 text-[10px] tracking-[0.35em] uppercase text-accent/60">
             01 // Overview
           </span>
@@ -44,7 +38,7 @@ export default function Hero() {
 
         {/* Main headline — parallax on scroll */}
         <motion.div style={{ y }}>
-          <FadeIn delay={0.2}>
+          <FadeIn delay={1.0}>
             <h1 className="text-[9.5vw] font-medium leading-[0.88] tracking-[-0.02em] text-black dark:text-white uppercase whitespace-nowrap text-center">
               Forge Hyperloop
             </h1>
@@ -53,7 +47,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Bottom row */}
-        <FadeIn delay={0.35}>
+        <FadeIn delay={1.15}>
           <div className="px-8">
             <div className="border-t border-accent/20 dark:border-accent/20 mb-8" />
             <div className="flex items-end justify-between">
