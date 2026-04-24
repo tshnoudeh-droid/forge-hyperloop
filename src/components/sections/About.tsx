@@ -14,12 +14,14 @@ export default function About() {
     <section
       id="about"
       className="min-h-screen flex flex-col justify-center px-8 py-24"
-      style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
     >
       {/* Rule + label */}
       <FadeIn variant="left">
-        <div className="border-t border-accent/20 mb-12">
-          <span className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase text-accent/60">
+        <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
+          <span
+            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase"
+            style={{ color: "var(--text-subtle)" }}
+          >
             02 // About
           </span>
         </div>
@@ -31,12 +33,15 @@ export default function About() {
         {/* Copy */}
         <FadeIn delay={0.1}>
           <div>
-            <h2 className="text-3xl md:text-[2.6rem] font-medium leading-[1.1] tracking-[-0.015em] text-black dark:text-white mb-10">
+            <h2
+              className="text-3xl md:text-[2.6rem] font-medium leading-[1.1] tracking-[-0.015em] mb-10"
+              style={{ color: "var(--text)" }}
+            >
               Engineering the future
               <br />
               of ground transport.
             </h2>
-            <div className="space-y-5 text-[13px] text-black/55 dark:text-white/55 leading-[1.75] max-w-sm">
+            <div className="space-y-5 text-[13px] leading-[1.75] max-w-sm" style={{ color: "var(--text-muted)" }}>
               <p>
                 Forge Hyperloop is an independent engineering project focused on
                 designing and testing competitive hyperloop technology. I build
@@ -60,16 +65,23 @@ export default function About() {
         {/* Stats table */}
         <FadeIn delay={0.2}>
           <div className="flex flex-col justify-start pt-1">
-            <div className="border-t border-accent/20">
+            <div className="border-t" style={{ borderColor: "var(--accent-dim)" }}>
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex items-baseline justify-between py-5 border-b border-black/10 dark:border-white/10"
+                  className="flex items-baseline justify-between py-5 border-b"
+                  style={{ borderColor: "var(--accent-dim)" }}
                 >
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-accent/40">
+                  <span
+                    className="text-[10px] tracking-[0.25em] uppercase"
+                    style={{ color: "var(--text-subtle)" }}
+                  >
                     {stat.label}
                   </span>
-                  <span className="text-[13px] font-medium text-accent">
+                  <span
+                    className="text-[13px] font-medium"
+                    style={{ color: "var(--accent)" }}
+                  >
                     {stat.value}
                   </span>
                 </div>

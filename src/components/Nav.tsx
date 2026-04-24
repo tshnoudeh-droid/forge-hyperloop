@@ -17,10 +17,10 @@ function ThemeToggle() {
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Toggle theme"
-      className="text-black/50 dark:text-white/50 hover:text-accent dark:hover:text-accent transition-colors duration-200"
+      style={{ color: "var(--text-muted)" }}
+      className="hover:text-accent transition-colors duration-200"
     >
       {isDark ? (
-        // Sun icon
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="4" />
           <line x1="12" y1="2" x2="12" y2="4" />
@@ -33,7 +33,6 @@ function ThemeToggle() {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </svg>
       ) : (
-        // Moon icon
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
@@ -44,29 +43,32 @@ function ThemeToggle() {
 
 export default function Nav() {
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6"
-      style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-    >
-      <span className="text-[11px] font-medium tracking-[0.25em] uppercase text-black dark:text-white">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6">
+      <span
+        className="text-[11px] font-medium tracking-[0.25em] uppercase"
+        style={{ fontFamily: "var(--font-sans)", color: "var(--text)" }}
+      >
         Forge Hyperloop
       </span>
       <div className="flex items-center gap-10">
         <a
           href="#about"
-          className="text-[11px] tracking-[0.2em] uppercase text-black/50 dark:text-white/50 hover:text-accent dark:hover:text-accent transition-colors duration-200"
+          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200"
+          style={{ fontFamily: "var(--font-sans)", color: "var(--text-muted)" }}
         >
           About
         </a>
         <a
           href="#projects"
-          className="text-[11px] tracking-[0.2em] uppercase text-black/50 dark:text-white/50 hover:text-accent dark:hover:text-accent transition-colors duration-200"
+          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200"
+          style={{ fontFamily: "var(--font-sans)", color: "var(--text-muted)" }}
         >
           Projects
         </a>
         <a
           href="#contact"
-          className="text-[11px] tracking-[0.2em] uppercase text-black/50 dark:text-white/50 hover:text-accent dark:hover:text-accent transition-colors duration-200"
+          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200"
+          style={{ fontFamily: "var(--font-sans)", color: "var(--text-muted)" }}
         >
           Contact
         </a>

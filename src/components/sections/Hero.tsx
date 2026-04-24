@@ -20,9 +20,17 @@ export default function Hero() {
       ref={ref}
       id="hero"
       className="relative min-h-screen flex flex-col justify-between pt-32 pb-12 overflow-hidden"
-      style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
+      style={{ background: "var(--bg)" }}
     >
-      {/* GLSL Hills — full background, heavy */}
+      {/* Radial accent glow — switches opacity via --hero-glow CSS var */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse 80% 60% at 50% 40%, var(--hero-glow) 0%, transparent 100%)",
+        }}
+      />
+
+      {/* GLSL Hills */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.62]">
         <GLSLHills width="100%" height="100%" />
       </div>
@@ -31,7 +39,10 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col justify-between min-h-screen pt-32 pb-12">
         {/* Section label */}
         <FadeIn delay={0.85} variant="left">
-          <span className="px-8 text-[10px] tracking-[0.35em] uppercase text-accent/60">
+          <span
+            className="px-8 text-[10px] tracking-[0.35em] uppercase"
+            style={{ fontFamily: "var(--font-sans)", color: "var(--hero-label)" }}
+          >
             01 // Overview
           </span>
         </FadeIn>
@@ -39,28 +50,48 @@ export default function Hero() {
         {/* Main headline — parallax on scroll */}
         <motion.div style={{ y }}>
           <FadeIn delay={1.0}>
-            <h1 className="text-[9.5vw] font-medium leading-[0.88] tracking-[-0.02em] text-black dark:text-white uppercase whitespace-nowrap text-center">
+            <h1
+              className="text-[9.5vw] font-medium leading-[0.88] tracking-[-0.02em] uppercase whitespace-nowrap text-center"
+              style={{ fontFamily: "var(--font-sans)", color: "var(--text)" }}
+            >
               Forge Hyperloop
             </h1>
-            <div className="border-t border-accent mt-4 mx-8" />
+            {/* Top rule — rgba(195,169,132,0.4) in both dark and light */}
+            <div
+              className="border-t mt-4 mx-8"
+              style={{ borderColor: "rgba(195, 169, 132, 0.4)" }}
+            />
           </FadeIn>
         </motion.div>
 
         {/* Bottom row */}
         <FadeIn delay={1.15}>
           <div className="px-8">
-            <div className="border-t border-accent/20 dark:border-accent/20 mb-8" />
+            {/* Divider — 0.5 dark / 0.4 light, switches via --hero-divider */}
+            <div
+              className="border-t mb-8"
+              style={{ borderColor: "var(--hero-divider)" }}
+            />
             <div className="flex items-end justify-between">
-              <p className="text-sm tracking-[0.03em] text-black/50 dark:text-white/50 leading-relaxed max-w-xs">
+              <p
+                className="text-sm tracking-[0.03em] leading-relaxed max-w-xs"
+                style={{ color: "var(--text-muted)" }}
+              >
                 One engineer. One mission.
                 <br />
                 Building the next generation of hyperloop systems.
               </p>
               <div className="flex flex-col items-center gap-3">
-                <span className="text-[9px] tracking-[0.3em] uppercase text-accent/50">
+                <span
+                  className="text-[9px] tracking-[0.3em] uppercase"
+                  style={{ fontFamily: "var(--font-sans)", color: "var(--text-subtle)" }}
+                >
                   Scroll
                 </span>
-                <div className="w-px h-14 bg-accent/40" />
+                <div
+                  className="w-px h-14"
+                  style={{ background: "var(--accent-dim)" }}
+                />
               </div>
             </div>
           </div>
