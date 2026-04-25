@@ -4,6 +4,7 @@ import FadeIn from "@/components/FadeIn";
 
 const stats = [
   { label: "Founded", value: "2026" },
+  { label: "Founder", value: "Tawfic Alexander Shnoudeh" },
   { label: "Role", value: "Founder / Engineer" },
   { label: "Discipline", value: "Systems Engineering" },
 ];

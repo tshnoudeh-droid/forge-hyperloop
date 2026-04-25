@@ -52,21 +52,28 @@ export default function Nav() {
       </span>
       <div className="flex items-center gap-10">
         <a
-          href="#about"
+          href="/#about"
           className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
           style={{ color: "var(--text-muted)" }}
         >
           About
         </a>
         <a
-          href="#projects"
+          href="/#projects"
           className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
           style={{ color: "var(--text-muted)" }}
         >
           Projects
         </a>
         <a
-          href="#contact"
+          href="/information"
+          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
+          style={{ color: "var(--text-muted)" }}
+        >
+          Information
+        </a>
+        <a
+          href="/#contact"
           className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
           style={{ color: "var(--text-muted)" }}
         >
