@@ -1,61 +1,33 @@
 "use client";
 
+import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 
-interface Project {
+interface WebProject {
   id: string;
-  index: string;
   name: string;
-  discipline: string;
-  status: string;
   description: string;
+  url: string;
+  href: string;
+  image: string;
 }
 
-const projects: Project[] = [
+const projects: WebProject[] = [
   {
-    id: "pod-structure",
-    index: "001",
-    name: "Pod Structure",
-    discipline: "Mechanical Engineering",
-    status: "In Development",
-    description:
-      "Carbon fiber monocoque chassis optimized for minimal drag inside a low-pressure tube environment.",
+    id: "orbit",
+    name: "Orbit",
+    description: "Hyperloop trip planner, booking and registration for your trip.",
+    url: "orbit.tawficshnoudeh.com",
+    href: "https://orbit.tawficshnoudeh.com",
+    image: "/orbit.png",
   },
   {
-    id: "propulsion",
-    index: "002",
-    name: "Propulsion System",
-    discipline: "Electrical / Mechanical",
-    status: "Research Phase",
-    description:
-      "Linear induction motor array providing contactless acceleration along a passive aluminum track.",
-  },
-  {
-    id: "levitation",
-    index: "003",
-    name: "Magnetic Levitation",
-    discipline: "Electrical Engineering",
-    status: "Prototyping",
-    description:
-      "Passive Halbach array configuration for stable levitation at low operational cost.",
-  },
-  {
-    id: "track-sim",
-    index: "004",
-    name: "Track Simulation",
-    discipline: "Software / CFD",
-    status: "Active",
-    description:
-      "High-fidelity computational fluid dynamics model of the pod operating inside the tube.",
-  },
-  {
-    id: "braking",
-    index: "005",
-    name: "Braking System",
-    discipline: "Mechanical Engineering",
-    status: "Design Review",
-    description:
-      "Eddy current braking with mechanical failsafe for controlled emergency deceleration.",
+    id: "network",
+    name: "Network",
+    description: "A global infrastructure simulation connecting 29 cities across 6 continents.",
+    url: "network.forgehyperloop.com",
+    href: "https://network.forgehyperloop.com",
+    image: "/network.png",
   },
 ];
 
@@ -69,7 +41,7 @@ export default function Projects() {
       <FadeIn variant="left">
         <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
           <span
-            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase"
+            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
             03 // Projects
@@ -83,68 +55,59 @@ export default function Projects() {
           className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] mb-16"
           style={{ color: "var(--text)" }}
         >
-          Active systems.
+          Software.
         </h2>
       </FadeIn>
 
-      {/* Project rows */}
-      <div className="border-t" style={{ borderColor: "var(--accent-dim)" }}>
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project, i) => (
-          <FadeIn key={project.id} delay={i * 0.06}>
-            <div
-              className="group grid grid-cols-[2.5rem_1fr] md:grid-cols-[2.5rem_1fr_11rem_8rem] items-baseline gap-x-8 gap-y-1 py-6 border-b"
-              style={{ borderColor: "var(--accent-dim)" }}
+          <FadeIn key={project.id} delay={i * 0.08}>
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
             >
-              {/* Index */}
-              <span
-                className="text-[10px] tracking-[0.2em] pt-px"
-                style={{ color: "var(--accent)" }}
+              {/* Screenshot */}
+              <div
+                className="relative w-full aspect-[16/10] overflow-hidden border-b"
+                style={{ borderColor: "var(--accent-dim)" }}
               >
-                {project.index}
-              </span>
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
 
-              {/* Name + description */}
-              <div>
+              {/* Footer */}
+              <div
+                className="border border-t-0 px-5 py-4 flex flex-col gap-1"
+                style={{ borderColor: "var(--accent-dim)" }}
+              >
                 <p
-                  className="text-[13px] font-medium mb-1.5 transition-colors duration-200 group-hover:text-accent"
+                  className="text-[13px] font-medium font-sans"
                   style={{ color: "var(--text)" }}
                 >
                   {project.name}
                 </p>
                 <p
-                  className="text-[12px] leading-relaxed md:hidden"
+                  className="text-[11px] leading-relaxed"
                   style={{ color: "var(--text-muted)" }}
                 >
                   {project.description}
                 </p>
-              </div>
-
-              {/* Discipline — desktop only */}
-              <span
-                className="hidden md:block text-[10px] tracking-[0.15em] uppercase self-start pt-px"
-                style={{ color: "var(--text-subtle)" }}
-              >
-                {project.discipline}
-              </span>
-
-              {/* Status — desktop only */}
-              <span
-                className="hidden md:block text-[10px] tracking-[0.15em] uppercase self-start pt-px text-right"
-                style={{ color: "var(--text-subtle)" }}
-              >
-                {project.status}
-              </span>
-
-              {/* Description — desktop only */}
-              <div className="hidden md:block col-start-2 col-end-5">
                 <p
-                  className="text-[12px] leading-relaxed mt-2 max-w-xl"
-                  style={{ color: "var(--text-muted)" }}
+                  className="text-[10px] tracking-[0.1em] font-sans mt-1"
+                  style={{ color: "var(--accent)" }}
                 >
-                  {project.description}
+                  {project.url}
                 </p>
               </div>
-            </div>
+            </a>
           </FadeIn>
         ))}
       </div>
