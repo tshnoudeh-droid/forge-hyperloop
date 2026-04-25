@@ -40,7 +40,7 @@ export default function Hero() {
         {/* Section label */}
         <FadeIn delay={0.85} variant="left">
           <span
-            className="px-8 text-[10px] tracking-[0.35em] uppercase"
+            className="px-8 text-[10px] tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--hero-label)" }}
           >
             01 // Overview
@@ -51,7 +51,7 @@ export default function Hero() {
         <motion.div style={{ y }}>
           <FadeIn delay={1.0}>
             <h1
-              className="text-[9.5vw] font-medium leading-[0.88] tracking-[-0.02em] uppercase whitespace-nowrap text-center"
+              className="text-[12vw] md:text-[9vw] lg:text-[8vw] font-medium leading-none tracking-[-0.02em] uppercase whitespace-normal sm:whitespace-nowrap text-center font-sans px-4"
               style={{ color: "var(--text)" }}
             >
               Forge Hyperloop
@@ -83,7 +83,7 @@ export default function Hero() {
               </p>
               <div className="flex flex-col items-center gap-3">
                 <span
-                  className="text-[9px] tracking-[0.3em] uppercase"
+                  className="text-[9px] tracking-[0.3em] uppercase font-sans"
                   style={{ color: "var(--text-subtle)" }}
                 >
                   Scroll

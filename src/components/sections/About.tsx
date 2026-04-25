@@ -3,9 +3,8 @@
 import FadeIn from "@/components/FadeIn";
 
 const stats = [
-  { label: "Founded", value: "2024" },
+  { label: "Founded", value: "2026" },
   { label: "Role", value: "Founder / Engineer" },
-  { label: "Competition", value: "European Hyperloop Week" },
   { label: "Discipline", value: "Systems Engineering" },
 ];
 
@@ -19,7 +18,7 @@ export default function About() {
       <FadeIn variant="left">
         <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
           <span
-            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase"
+            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
             02 // About
@@ -34,7 +33,7 @@ export default function About() {
         <FadeIn delay={0.1}>
           <div>
             <h2
-              className="text-3xl md:text-[2.6rem] font-medium leading-[1.1] tracking-[-0.015em] mb-10"
+              className="text-3xl md:text-[2.6rem] font-medium leading-[1.1] tracking-[-0.015em] mb-10 font-sans"
               style={{ color: "var(--text)" }}
             >
               Engineering the future
@@ -45,8 +44,7 @@ export default function About() {
               <p>
                 Forge Hyperloop is an independent engineering project focused on
                 designing and testing competitive hyperloop technology. I build
-                real hardware, run real simulations, and compete at international
-                events.
+                real hardware, run real simulations.
               </p>
               <p>
                 Hyperloop is a proposed mode of passenger and cargo transport
@@ -56,7 +54,7 @@ export default function About() {
               <p>
                 My work spans mechanical engineering, electrical systems,
                 software, and aerodynamics, driven by a single
-                mission: build a pod that competes.
+                mission: connect the earth.
               </p>
             </div>
           </div>
@@ -73,13 +71,13 @@ export default function About() {
                   style={{ borderColor: "var(--accent-dim)" }}
                 >
                   <span
-                    className="text-[10px] tracking-[0.25em] uppercase"
+                    className="text-[10px] tracking-[0.25em] uppercase font-sans"
                     style={{ color: "var(--text-subtle)" }}
                   >
                     {stat.label}
                   </span>
                   <span
-                    className="text-[13px] font-medium"
+                    className="text-[13px] font-medium font-sans"
                     style={{ color: "var(--accent)" }}
                   >
                     {stat.value}

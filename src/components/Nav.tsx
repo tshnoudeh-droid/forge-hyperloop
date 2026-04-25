@@ -45,7 +45,7 @@ export default function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6">
       <span
-        className="text-[11px] font-medium tracking-[0.25em] uppercase"
+        className="text-[11px] font-medium tracking-[0.25em] uppercase font-sans"
         style={{ color: "var(--text)" }}
       >
         Forge Hyperloop
@@ -53,22 +53,22 @@ export default function Nav() {
       <div className="flex items-center gap-10">
         <a
           href="#about"
-          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200"
-          style={{ fontFamily: "var(--font-sans)", color: "var(--text-muted)" }}
+          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
+          style={{ color: "var(--text-muted)" }}
         >
           About
         </a>
         <a
           href="#projects"
-          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200"
-          style={{ fontFamily: "var(--font-sans)", color: "var(--text-muted)" }}
+          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
+          style={{ color: "var(--text-muted)" }}
         >
           Projects
         </a>
         <a
           href="#contact"
-          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200"
-          style={{ fontFamily: "var(--font-sans)", color: "var(--text-muted)" }}
+          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
+          style={{ color: "var(--text-muted)" }}
         >
           Contact
         </a>

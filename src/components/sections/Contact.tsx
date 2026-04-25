@@ -32,7 +32,7 @@ export default function Contact() {
         <FadeIn variant="left">
           <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
             <span
-              className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase"
+              className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
               style={{ color: "var(--text-subtle)" }}
             >
               04 // Contact
@@ -43,7 +43,7 @@ export default function Contact() {
         {/* Heading */}
         <FadeIn delay={0.1}>
           <h2
-            className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] mb-16 leading-tight"
+            className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] mb-16 leading-tight font-sans"
             style={{ color: "var(--text)" }}
           >
             Get in touch.
@@ -60,7 +60,7 @@ export default function Contact() {
                 style={{ borderColor: "var(--accent-dim)" }}
               >
                 <span
-                  className="text-[10px] tracking-[0.25em] uppercase"
+                  className="text-[10px] tracking-[0.25em] uppercase font-sans"
                   style={{ color: "var(--text-subtle)" }}
                 >
                   {row.label}
@@ -69,7 +69,7 @@ export default function Contact() {
                   href={row.href}
                   target={row.href.startsWith("http") ? "_blank" : undefined}
                   rel={row.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="text-[13px] hover:text-accent transition-colors duration-200"
+                  className="text-[13px] hover:text-accent transition-colors duration-200 font-sans"
                   style={{ color: "var(--accent)" }}
                 >
                   {row.display}
@@ -87,14 +87,14 @@ export default function Contact() {
           style={{ borderColor: "var(--accent-dim)" }}
         >
           <span
-            className="text-[10px] tracking-[0.25em] uppercase"
+            className="text-[10px] tracking-[0.25em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
             Forge Hyperloop
           </span>
           <SocialIcons />
           <span
-            className="text-[10px] tracking-[0.15em]"
+            className="text-[10px] tracking-[0.15em] font-mono"
             style={{ color: "var(--text-subtle)" }}
           >
             {new Date().getFullYear()}
