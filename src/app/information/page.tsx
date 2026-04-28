@@ -52,8 +52,38 @@ export default function Information() {
             </ul>
           </div>
 
+          {/* Articles */}
+          <div className="mt-16 border-t" style={{ borderColor: "var(--accent-dim)" }}>
+            <span
+              className="inline-block mt-5 mb-8 text-[10px] tracking-[0.35em] uppercase font-sans"
+              style={{ color: "var(--text-subtle)" }}
+            >
+              Articles
+            </span>
+            <Link
+              href="/information/master-plan"
+              className="flex items-center justify-between py-5 border-t group"
+              style={{ borderColor: "var(--accent-dim)" }}
+            >
+              <div className="flex flex-col gap-1.5">
+                <p className="text-[13px] font-medium font-sans transition-colors duration-200" style={{ color: "var(--text)" }}>
+                  The Forge Hyperloop Master Plan
+                </p>
+                <p className="text-[11px] leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
+                  A phased global cargo network. Starting where trade flows fastest, building until every continent is connected.
+                </p>
+              </div>
+              <span
+                className="text-[11px] font-sans shrink-0 ml-8 transform group-hover:translate-x-1 transition-transform duration-200"
+                style={{ color: "var(--accent)" }}
+              >
+                →
+              </span>
+            </Link>
+          </div>
+
           {/* Back button */}
-          <div className="mt-16 border-t pt-8" style={{ borderColor: "var(--accent-dim)" }}>
+          <div className="mt-12 border-t pt-8" style={{ borderColor: "var(--accent-dim)" }}>
             <Link
               href="/"
               className="inline-flex items-center text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans group"

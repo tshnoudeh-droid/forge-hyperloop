@@ -1,35 +1,113 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
 
-interface WebProject {
-  id: string;
-  name: string;
-  description: string;
-  url: string;
-  href: string;
-  image: string;
-}
+const labModules = ["Conduit", "Flux", "Shell"];
 
-const projects: WebProject[] = [
-  {
-    id: "orbit",
-    name: "Orbit",
-    description: "Hyperloop trip planner, booking and registration for your trip.",
-    url: "orbit.tawficshnoudeh.com",
-    href: "https://orbit.tawficshnoudeh.com",
-    image: "/orbit.png",
-  },
-  {
-    id: "network",
-    name: "Network",
-    description: "A global infrastructure simulation connecting 29 cities across 6 continents.",
-    url: "network.forgehyperloop.com",
-    href: "https://network.forgehyperloop.com",
-    image: "/network.png",
-  },
-];
+function LabCard() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div>
+      <a
+        href="https://lab.forgehyperloop.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block group"
+      >
+        <div
+          className="relative w-full aspect-[16/10] overflow-hidden border-b"
+          style={{ borderColor: "var(--accent-dim)" }}
+        >
+          <Image
+            src="/lab.png"
+            alt="Lab"
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+      </a>
+
+      <div
+        className="border border-t-0 px-5 py-4"
+        style={{ borderColor: "var(--accent-dim)" }}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col gap-1 min-w-0">
+            <p
+              className="text-[13px] font-medium font-sans"
+              style={{ color: "var(--text)" }}
+            >
+              Lab
+            </p>
+            <p
+              className="text-[11px] leading-relaxed"
+              style={{ color: "var(--text-muted)" }}
+            >
+              The blueprint behind the hyperloop infrastructure, housing the software models.
+            </p>
+            <p
+              className="text-[10px] tracking-[0.1em] font-sans mt-1"
+              style={{ color: "var(--accent)" }}
+            >
+              lab.forgehyperloop.com
+            </p>
+          </div>
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle modules"
+            className="shrink-0 text-[11px] font-sans transition-colors duration-200 mt-0.5"
+            style={{ color: open ? "var(--accent)" : "var(--text-subtle)" }}
+          >
+            {open ? "▲" : "▼"}
+          </button>
+        </div>
+
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+              className="overflow-hidden"
+            >
+              <div
+                className="border-t mt-4 pt-3"
+                style={{ borderColor: "var(--accent-dim)" }}
+              >
+                {labModules.map((mod) => (
+                  <div
+                    key={mod}
+                    className="flex items-center justify-between py-2.5 border-b last:border-b-0"
+                    style={{ borderColor: "var(--accent-dim)" }}
+                  >
+                    <span
+                      className="text-[12px] font-sans"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {mod}
+                    </span>
+                    <span
+                      className="text-[9px] tracking-[0.25em] uppercase font-sans"
+                      style={{ color: "var(--text-subtle)" }}
+                    >
+                      Module
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
 
 export default function Projects() {
   return (
@@ -37,7 +115,6 @@ export default function Projects() {
       id="projects"
       className="min-h-screen flex flex-col justify-center px-8 py-24"
     >
-      {/* Rule + label */}
       <FadeIn variant="left">
         <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
           <span
@@ -49,7 +126,6 @@ export default function Projects() {
         </div>
       </FadeIn>
 
-      {/* Section heading */}
       <FadeIn delay={0.1}>
         <h2
           className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] mb-16"
@@ -59,57 +135,85 @@ export default function Projects() {
         </h2>
       </FadeIn>
 
-      {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map((project, i) => (
-          <FadeIn key={project.id} delay={i * 0.08}>
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block group"
+        {/* Network */}
+        <FadeIn delay={0}>
+          <a
+            href="https://network.forgehyperloop.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group"
+          >
+            <div
+              className="relative w-full aspect-[16/10] overflow-hidden border-b"
+              style={{ borderColor: "var(--accent-dim)" }}
             >
-              {/* Screenshot */}
-              <div
-                className="relative w-full aspect-[16/10] overflow-hidden border-b"
-                style={{ borderColor: "var(--accent-dim)" }}
-              >
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
+              <Image
+                src="/network.png"
+                alt="Network"
+                fill
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div
+              className="border border-t-0 px-5 py-4 flex flex-col gap-1"
+              style={{ borderColor: "var(--accent-dim)" }}
+            >
+              <p className="text-[13px] font-medium font-sans" style={{ color: "var(--text)" }}>
+                Network
+              </p>
+              <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                A global infrastructure simulation connecting 29 cities across 6 continents.
+              </p>
+              <p className="text-[10px] tracking-[0.1em] font-sans mt-1" style={{ color: "var(--accent)" }}>
+                network.forgehyperloop.com
+              </p>
+            </div>
+          </a>
+        </FadeIn>
 
-              {/* Footer */}
-              <div
-                className="border border-t-0 px-5 py-4 flex flex-col gap-1"
-                style={{ borderColor: "var(--accent-dim)" }}
-              >
-                <p
-                  className="text-[13px] font-medium font-sans"
-                  style={{ color: "var(--text)" }}
-                >
-                  {project.name}
-                </p>
-                <p
-                  className="text-[11px] leading-relaxed"
-                  style={{ color: "var(--text-muted)" }}
-                >
-                  {project.description}
-                </p>
-                <p
-                  className="text-[10px] tracking-[0.1em] font-sans mt-1"
-                  style={{ color: "var(--accent)" }}
-                >
-                  {project.url}
-                </p>
-              </div>
-            </a>
-          </FadeIn>
-        ))}
+        {/* Lab */}
+        <FadeIn delay={0.08}>
+          <LabCard />
+        </FadeIn>
+
+        {/* Orbit */}
+        <FadeIn delay={0.16}>
+          <a
+            href="https://orbit.tawficshnoudeh.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group"
+          >
+            <div
+              className="relative w-full aspect-[16/10] overflow-hidden border-b"
+              style={{ borderColor: "var(--accent-dim)" }}
+            >
+              <Image
+                src="/orbit.png"
+                alt="Orbit"
+                fill
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div
+              className="border border-t-0 px-5 py-4 flex flex-col gap-1"
+              style={{ borderColor: "var(--accent-dim)" }}
+            >
+              <p className="text-[13px] font-medium font-sans" style={{ color: "var(--text)" }}>
+                Orbit
+              </p>
+              <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                Hyperloop trip planner, booking and registration for your trip.
+              </p>
+              <p className="text-[10px] tracking-[0.1em] font-sans mt-1" style={{ color: "var(--accent)" }}>
+                orbit.tawficshnoudeh.com
+              </p>
+            </div>
+          </a>
+        </FadeIn>
       </div>
     </section>
   );

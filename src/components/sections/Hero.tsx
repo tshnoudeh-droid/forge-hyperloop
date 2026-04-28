@@ -64,6 +64,33 @@ export default function Hero() {
           </FadeIn>
         </motion.div>
 
+        {/* Site links — Network + Lab */}
+        <FadeIn delay={1.08}>
+          <div className="mx-8 grid grid-cols-1 sm:grid-cols-2">
+            <a
+              href="https://network.forgehyperloop.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-5 sm:pr-8 sm:border-r border-b sm:border-b-0"
+              style={{ borderColor: "var(--accent-dim)" }}
+            >
+              <div className="text-[9px] tracking-[0.3em] uppercase font-sans mb-2" style={{ color: "var(--text-subtle)" }}>Network</div>
+              <div className="text-[11px] font-medium font-sans mb-1" style={{ color: "var(--accent)" }}>network.forgehyperloop.com</div>
+              <div className="text-[11px] leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>A global infrastructure simulation connecting 29 cities across 6 continents.</div>
+            </a>
+            <a
+              href="https://lab.forgehyperloop.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-5 sm:pl-8"
+            >
+              <div className="text-[9px] tracking-[0.3em] uppercase font-sans mb-2" style={{ color: "var(--text-subtle)" }}>Lab</div>
+              <div className="text-[11px] font-medium font-sans mb-1" style={{ color: "var(--accent)" }}>lab.forgehyperloop.com</div>
+              <div className="text-[11px] leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>The blueprint behind the hyperloop infrastructure.</div>
+            </a>
+          </div>
+        </FadeIn>
+
         {/* Bottom row */}
         <FadeIn delay={1.15}>
           <div className="px-8">
