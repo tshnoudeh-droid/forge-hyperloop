@@ -61,6 +61,13 @@ export default function Hero() {
               className="border-t mt-4 mx-8"
               style={{ borderColor: "rgba(195, 169, 132, 0.4)" }}
             />
+            {/* Tagline */}
+            <p
+              className="text-center mt-5 text-[15px] tracking-[0.08em] font-sans"
+              style={{ color: "var(--text-muted)" }}
+            >
+              Exists to connect the Earth.
+            </p>
           </FadeIn>
         </motion.div>
 
@@ -101,7 +108,7 @@ export default function Hero() {
             />
             <div className="flex items-end justify-between">
               <p
-                className="text-sm tracking-[0.03em] leading-relaxed max-w-xs"
+                className="text-base tracking-[0.03em] leading-relaxed max-w-xs"
                 style={{ color: "var(--text-muted)" }}
               >
                 One engineer. One mission.

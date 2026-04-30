@@ -41,44 +41,53 @@ function ThemeToggle() {
   );
 }
 
+const externalLinks = [
+  { label: "Network", href: "https://network.forgehyperloop.com" },
+  { label: "Lab", href: "https://lab.forgehyperloop.com" },
+  { label: "Orbit", href: "https://orbit.forgehyperloop.com" },
+];
+
+const internalLinks = [
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Information", href: "/information" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const linkClass =
+  "text-[12px] tracking-[0.18em] uppercase hover:text-accent transition-colors duration-200 font-sans";
+
 export default function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6">
-      <span
-        className="text-[11px] font-medium tracking-[0.25em] uppercase font-sans"
-        style={{ color: "var(--text)" }}
-      >
-        Forge Hyperloop
-      </span>
-      <div className="flex items-center gap-10">
-        <a
-          href="/#about"
-          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
-          style={{ color: "var(--text-muted)" }}
-        >
-          About
-        </a>
-        <a
-          href="/#projects"
-          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
-          style={{ color: "var(--text-muted)" }}
-        >
-          Projects
-        </a>
-        <a
-          href="/information"
-          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
-          style={{ color: "var(--text-muted)" }}
-        >
-          Information
-        </a>
-        <a
-          href="/#contact"
-          className="text-[11px] tracking-[0.2em] uppercase hover:text-accent transition-colors duration-200 font-sans"
-          style={{ color: "var(--text-muted)" }}
-        >
-          Contact
-        </a>
+      {/* Left — external product links */}
+      <div className="flex items-center gap-7">
+        {externalLinks.map(({ label, href }) => (
+          <a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+            style={{ color: "var(--text-muted)" }}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+
+      {/* Right — internal page links + theme toggle */}
+      <div className="flex items-center gap-7">
+        {internalLinks.map(({ label, href }) => (
+          <a
+            key={label}
+            href={href}
+            className={linkClass}
+            style={{ color: "var(--text-muted)" }}
+          >
+            {label}
+          </a>
+        ))}
         <ThemeToggle />
       </div>
     </nav>

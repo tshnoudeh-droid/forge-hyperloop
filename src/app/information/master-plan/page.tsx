@@ -145,7 +145,7 @@ export default function MasterPlan() {
           {/* Label */}
           <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
             <span
-              className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
+              className="inline-block mt-5 text-xs tracking-[0.35em] uppercase font-sans"
               style={{ color: "var(--text-subtle)" }}
             >
               Information / Master Plan
@@ -154,7 +154,7 @@ export default function MasterPlan() {
 
           {/* Title */}
           <h1
-            className="text-4xl md:text-[2.8rem] font-medium leading-[1.06] tracking-[-0.02em] mb-8 font-sans"
+            className="text-4xl md:text-5xl font-medium leading-[1.06] tracking-[-0.02em] mb-8 font-sans"
             style={{ color: "var(--text)" }}
           >
             The Forge Hyperloop<br />Master Plan
@@ -162,7 +162,7 @@ export default function MasterPlan() {
 
           {/* Tagline */}
           <p
-            className="text-[15px] leading-relaxed mb-16 font-sans"
+            className="text-base leading-relaxed mb-16 font-sans"
             style={{ color: "var(--accent)" }}
           >
             We are going to connect the Earth. Here is exactly how.
@@ -172,7 +172,7 @@ export default function MasterPlan() {
           <div className="font-sans" style={{ color: "var(--text-muted)" }}>
 
             {/* Opening */}
-            <div className="space-y-5 text-[13px] leading-[1.85]">
+            <div className="space-y-5 text-base leading-[1.85]">
               <p>
                 The rest of the world is moving fast. AI is embedding itself into every industry. Autonomy is spreading through factories, vehicles, and logistics. Robotics is transforming manufacturing. And yet, the way goods move across the surface of this planet has not fundamentally changed in 70 years.
               </p>
@@ -195,7 +195,7 @@ export default function MasterPlan() {
             >
               The Problem: Global Trade Is Bottlenecked by Infrastructure Built for the 20th Century
             </h2>
-            <div className="space-y-5 text-[13px] leading-[1.85]">
+            <div className="space-y-5 text-base leading-[1.85]">
               <p>
                 Every product you use traveled to reach you. The phone in your pocket was assembled in China from components made in Taiwan, South Korea, Japan, and Germany. The medication in your cabinet was manufactured in India or Singapore and shipped cold. The food on your table moved through three continents before arriving. The engine of global prosperity is trade, and that engine runs on logistics infrastructure that is slow, carbon-intensive, and structurally incapable of meeting the demands of the world we now live in.
               </p>
@@ -221,7 +221,7 @@ export default function MasterPlan() {
             >
               Why the Proposed Alternatives Are Not the Answer
             </h2>
-            <div className="space-y-5 text-[13px] leading-[1.85]">
+            <div className="space-y-5 text-base leading-[1.85]">
               <p>
                 Before presenting Forge Hyperloop's solution, it is worth being precise about what does not work.
               </p>
@@ -246,7 +246,7 @@ export default function MasterPlan() {
             >
               The Technology
             </h2>
-            <div className="space-y-5 text-[13px] leading-[1.85]">
+            <div className="space-y-5 text-base leading-[1.85]">
               <p>
                 Hyperloop combines two systems. One is commercially deployed. The other is the gap being closed.
               </p>
@@ -277,7 +277,7 @@ export default function MasterPlan() {
             >
               The Radical Solution: A Global Cargo Network, Then the World
             </h2>
-            <div className="space-y-5 text-[13px] leading-[1.85]">
+            <div className="space-y-5 text-base leading-[1.85]">
               <p>
                 Forge Hyperloop's thesis is this: the highest-leverage application of hyperloop technology is not passenger transit between nearby cities. It is global trade infrastructure. Build the network where trade volume is highest, prove the economics on cargo, then open the same infrastructure to passengers.
               </p>
@@ -327,7 +327,7 @@ export default function MasterPlan() {
                       ))}
                     </div>
                   )}
-                  <div className="space-y-4 text-[13px] leading-[1.85]">
+                  <div className="space-y-4 text-base leading-[1.85]">
                     {phase.body.map((para, i) => (
                       <p key={i}>{para}</p>
                     ))}
@@ -343,7 +343,7 @@ export default function MasterPlan() {
             >
               The Economics
             </h2>
-            <div className="space-y-5 text-[13px] leading-[1.85]">
+            <div className="space-y-5 text-base leading-[1.85]">
               <p>
                 Infrastructure is not a startup. The investment case for Forge Hyperloop does not look like a SaaS business. It looks like every major transportation investment in history: large upfront capital, long payback period, and economic returns that vastly exceed the direct revenue.
               </p>
@@ -371,7 +371,7 @@ export default function MasterPlan() {
             >
               What Forge Is Building Now
             </h2>
-            <p className="text-[13px] leading-[1.85] mb-6">
+            <p className="text-base leading-[1.85] mb-6">
               The gap between vision and credibility is closed by building. Forge Hyperloop is not a paper company. It is a builder, and the current build portfolio is the proof.
             </p>
             <div className="border-t" style={{ borderColor: "var(--accent-dim)" }}>
@@ -382,16 +382,16 @@ export default function MasterPlan() {
                   style={{ borderColor: "var(--accent-dim)" }}
                 >
                   <p
-                    className="text-[12px] font-medium mb-2"
+                    className="text-sm font-medium mb-2"
                     style={{ color: "var(--text)" }}
                   >
                     {name}
                   </p>
-                  <p className="text-[12px] leading-[1.8]">{desc}</p>
+                  <p className="text-sm leading-[1.8]">{desc}</p>
                 </div>
               ))}
             </div>
-            <p className="text-[13px] leading-[1.85] mt-6">
+            <p className="text-base leading-[1.85] mt-6">
               These are not demos for the sake of demos. Each one is evidence that this team understands the physics, the infrastructure, and the network. Aether proves levitation. Origin proves pressure physics. Conduit proves structural engineering. FusynCAD proves design velocity. The network globe proves the vision is specific, not vague. Orbit proves the use case is understood, not assumed.
             </p>
 
@@ -402,7 +402,7 @@ export default function MasterPlan() {
             >
               Why This Is Different From Everything That Came Before
             </h2>
-            <div className="space-y-5 text-[13px] leading-[1.85]">
+            <div className="space-y-5 text-base leading-[1.85]">
               <p>
                 The hyperloop companies of the first wave, Virgin Hyperloop One, Hyperloop Transportation Technologies in their early form, thought about domestic corridors. They competed with trains and buses. They needed passenger certification from day one. They tried to raise money before the regulatory framework existed. They overclaimed the timeline and underprepared the engineering. Virgin burned $450 million and produced one human passenger test at 172 km/h, less than half the speed of a Japanese bullet train, before shutting down.
               </p>
@@ -437,7 +437,7 @@ export default function MasterPlan() {
                   >
                     {period}
                   </span>
-                  <p className="text-[12px] leading-[1.8]">{text}</p>
+                  <p className="text-sm leading-[1.8]">{text}</p>
                 </div>
               ))}
             </div>
@@ -449,7 +449,7 @@ export default function MasterPlan() {
             >
               One Sentence
             </h2>
-            <div className="space-y-5 text-[13px] leading-[1.85]">
+            <div className="space-y-5 text-base leading-[1.85]">
               <p>Forge Hyperloop exists to connect the Earth.</p>
               <p>
                 Not one city pair. Not one corridor. The Earth. Starting where trade flows fastest, building phase by phase, until the movement of goods and people across this planet is no longer the bottleneck on what human civilization can accomplish.
@@ -486,11 +486,41 @@ export default function MasterPlan() {
 
           </div>
 
-          {/* Back */}
+          {/* Read next: Economics */}
           <div className="mt-16 border-t pt-8" style={{ borderColor: "var(--accent-dim)" }}>
+            <span
+              className="text-xs tracking-[0.3em] uppercase font-sans block mb-4"
+              style={{ color: "var(--text-subtle)" }}
+            >
+              Read Next
+            </span>
+            <Link
+              href="/information/economics"
+              className="flex items-center justify-between py-5 border-t group"
+              style={{ borderColor: "var(--accent-dim)" }}
+            >
+              <div className="flex flex-col gap-1.5">
+                <p className="text-base font-medium font-sans transition-colors duration-200 group-hover:text-accent" style={{ color: "var(--text)" }}>
+                  Economics Model
+                </p>
+                <p className="text-sm leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
+                  The full financial case — cargo tolls, pod fleet math, build costs, and the $91B/year revenue case at network maturity.
+                </p>
+              </div>
+              <span
+                className="text-base font-sans shrink-0 ml-8 transform group-hover:translate-x-1 transition-transform duration-200"
+                style={{ color: "var(--accent)" }}
+              >
+                →
+              </span>
+            </Link>
+          </div>
+
+          {/* Back */}
+          <div className="mt-8 border-t pt-8" style={{ borderColor: "var(--accent-dim)" }}>
             <Link
               href="/information"
-              className="inline-flex items-center text-[11px] tracking-[0.2em] uppercase transition-colors duration-200 font-sans group"
+              className="inline-flex items-center text-sm tracking-[0.2em] uppercase transition-colors duration-200 font-sans group"
               style={{ color: "var(--text)" }}
             >
               <span

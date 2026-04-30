@@ -41,7 +41,7 @@ export default function About() {
               <br />
               of ground transport.
             </h2>
-            <div className="space-y-5 text-[13px] leading-[1.75] max-w-sm" style={{ color: "var(--text-muted)" }}>
+            <div className="space-y-5 text-base leading-[1.75] max-w-sm" style={{ color: "var(--text-muted)" }}>
               <p>
                 Forge Hyperloop is an independent engineering project focused on
                 designing and testing competitive hyperloop technology. I build
@@ -78,7 +78,7 @@ export default function About() {
                     {stat.label}
                   </span>
                   <span
-                    className="text-[13px] font-medium font-sans"
+                    className="text-sm font-medium font-sans"
                     style={{ color: "var(--accent)" }}
                   >
                     {stat.value}
