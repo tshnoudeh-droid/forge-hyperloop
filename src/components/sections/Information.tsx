@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { TiltCard } from "@/components/TiltCard";
 
 const articles = [
   {
@@ -33,7 +34,7 @@ export default function InformationSection() {
             className="inline-block mt-5 text-xs tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
-            03 // Information
+            04 // Information
           </span>
         </div>
       </FadeIn>
@@ -57,47 +58,56 @@ export default function InformationSection() {
           </div>
         </FadeIn>
 
-        {/* Right: article list */}
+        {/* Right: article cards */}
         <FadeIn delay={0.2}>
-          <div className="border-t" style={{ borderColor: "var(--accent-dim)" }}>
+          <div className="flex flex-col gap-3">
             {articles.map(({ href, title, description, label }) => (
-              <Link
+              <TiltCard
                 key={href}
-                href={href}
-                className="flex items-center justify-between py-6 border-b group"
-                style={{ borderColor: "var(--accent-dim)" }}
+                tiltLimit={6}
+                scale={1.02}
+                perspective={900}
+                effect="gravitate"
+                spotlight
+                className="rounded-sm border"
+                style={{ borderColor: "var(--accent-dim)", background: "rgba(255,255,255,0.02)" }}
               >
-                <div className="flex flex-col gap-2">
-                  <span
-                    className="text-[10px] tracking-[0.3em] uppercase font-sans"
-                    style={{ color: "var(--text-subtle)" }}
-                  >
-                    {label}
-                  </span>
-                  <p
-                    className="text-base font-medium font-sans transition-colors duration-200 group-hover:text-accent"
-                    style={{ color: "var(--text)" }}
-                  >
-                    {title}
-                  </p>
-                  <p
-                    className="text-sm leading-relaxed font-sans"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    {description}
-                  </p>
-                </div>
-                <span
-                  className="text-base font-sans shrink-0 ml-8 transform group-hover:translate-x-1 transition-transform duration-200"
-                  style={{ color: "var(--accent)" }}
+                <Link
+                  href={href}
+                  className="flex items-center justify-between px-6 py-5 group"
                 >
-                  →
-                </span>
-              </Link>
+                  <div className="flex flex-col gap-2">
+                    <span
+                      className="text-[10px] tracking-[0.3em] uppercase font-sans"
+                      style={{ color: "var(--text-subtle)" }}
+                    >
+                      {label}
+                    </span>
+                    <p
+                      className="text-base font-medium font-sans transition-colors duration-200 group-hover:text-accent"
+                      style={{ color: "var(--text)" }}
+                    >
+                      {title}
+                    </p>
+                    <p
+                      className="text-sm leading-relaxed font-sans"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      {description}
+                    </p>
+                  </div>
+                  <span
+                    className="text-base font-sans shrink-0 ml-8 transform group-hover:translate-x-1 transition-transform duration-200"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    →
+                  </span>
+                </Link>
+              </TiltCard>
             ))}
 
             {/* View all */}
-            <div className="pt-6">
+            <div className="pt-2">
               <Link
                 href="/information"
                 className="inline-flex items-center text-sm tracking-[0.2em] uppercase font-sans group transition-colors duration-200"

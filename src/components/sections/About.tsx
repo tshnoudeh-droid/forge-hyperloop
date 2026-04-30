@@ -1,6 +1,7 @@
 "use client";
 
 import FadeIn from "@/components/FadeIn";
+import { TiltCard } from "@/components/TiltCard";
 
 const stats = [
   { label: "Founded", value: "2026" },
@@ -61,14 +62,22 @@ export default function About() {
           </div>
         </FadeIn>
 
-        {/* Stats table */}
+        {/* Stats table — TiltCard */}
         <FadeIn delay={0.2}>
-          <div className="flex flex-col justify-start pt-1">
-            <div className="border-t" style={{ borderColor: "var(--accent-dim)" }}>
-              {stats.map((stat) => (
+          <TiltCard
+            tiltLimit={6}
+            scale={1.01}
+            perspective={900}
+            effect="gravitate"
+            spotlight
+            className="rounded-sm border"
+            style={{ borderColor: "var(--accent-dim)", background: "rgba(255,255,255,0.02)" }}
+          >
+            <div>
+              {stats.map((stat, i) => (
                 <div
                   key={stat.label}
-                  className="flex items-baseline justify-between py-5 border-b"
+                  className={`flex items-baseline justify-between px-6 py-5 ${i < stats.length - 1 ? "border-b" : ""}`}
                   style={{ borderColor: "var(--accent-dim)" }}
                 >
                   <span
@@ -86,7 +95,7 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
+          </TiltCard>
         </FadeIn>
 
       </div>

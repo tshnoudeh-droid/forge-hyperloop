@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
+import { TiltCard } from "@/components/TiltCard";
 
 const labModules = ["Conduit", "Flux", "Shell"];
 
@@ -11,7 +12,15 @@ function LabCard() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div>
+    <TiltCard
+      tiltLimit={6}
+      scale={1.02}
+      perspective={900}
+      effect="gravitate"
+      spotlight
+      className="rounded-sm"
+      style={{ background: "transparent" }}
+    >
       <a
         href="https://lab.forgehyperloop.com"
         target="_blank"
@@ -105,7 +114,64 @@ function LabCard() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </TiltCard>
+  );
+}
+
+function AppCard({
+  href,
+  src,
+  alt,
+  name,
+  desc,
+  url,
+}: {
+  href: string;
+  src: string;
+  alt: string;
+  name: string;
+  desc: string;
+  url: string;
+}) {
+  return (
+    <TiltCard
+      tiltLimit={6}
+      scale={1.02}
+      perspective={900}
+      effect="gravitate"
+      spotlight
+      className="rounded-sm"
+      style={{ background: "transparent" }}
+    >
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block group">
+        <div
+          className="relative w-full aspect-[16/10] overflow-hidden border-b"
+          style={{ borderColor: "var(--accent-dim)" }}
+        >
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </div>
+        <div
+          className="border border-t-0 px-5 py-4 flex flex-col gap-1"
+          style={{ borderColor: "var(--accent-dim)" }}
+        >
+          <p className="text-[13px] font-medium font-sans" style={{ color: "var(--text)" }}>
+            {name}
+          </p>
+          <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            {desc}
+          </p>
+          <p className="text-[10px] tracking-[0.1em] font-sans mt-1" style={{ color: "var(--accent)" }}>
+            {url}
+          </p>
+        </div>
+      </a>
+    </TiltCard>
   );
 }
 
@@ -138,39 +204,14 @@ export default function Projects() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Network */}
         <FadeIn delay={0}>
-          <a
+          <AppCard
             href="https://network.forgehyperloop.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group"
-          >
-            <div
-              className="relative w-full aspect-[16/10] overflow-hidden border-b"
-              style={{ borderColor: "var(--accent-dim)" }}
-            >
-              <Image
-                src="/network.png"
-                alt="Network"
-                fill
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <div
-              className="border border-t-0 px-5 py-4 flex flex-col gap-1"
-              style={{ borderColor: "var(--accent-dim)" }}
-            >
-              <p className="text-[13px] font-medium font-sans" style={{ color: "var(--text)" }}>
-                Network
-              </p>
-              <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                A global infrastructure simulation connecting 29 cities across 6 continents.
-              </p>
-              <p className="text-[10px] tracking-[0.1em] font-sans mt-1" style={{ color: "var(--accent)" }}>
-                network.forgehyperloop.com
-              </p>
-            </div>
-          </a>
+            src="/network.png"
+            alt="Network"
+            name="Network"
+            desc="A global infrastructure simulation connecting 29 cities across 6 continents."
+            url="network.forgehyperloop.com"
+          />
         </FadeIn>
 
         {/* Lab */}
@@ -180,39 +221,14 @@ export default function Projects() {
 
         {/* Orbit */}
         <FadeIn delay={0.16}>
-          <a
+          <AppCard
             href="https://orbit.tawficshnoudeh.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group"
-          >
-            <div
-              className="relative w-full aspect-[16/10] overflow-hidden border-b"
-              style={{ borderColor: "var(--accent-dim)" }}
-            >
-              <Image
-                src="/orbit.png"
-                alt="Orbit"
-                fill
-                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-            <div
-              className="border border-t-0 px-5 py-4 flex flex-col gap-1"
-              style={{ borderColor: "var(--accent-dim)" }}
-            >
-              <p className="text-[13px] font-medium font-sans" style={{ color: "var(--text)" }}>
-                Orbit
-              </p>
-              <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                Hyperloop trip planner, booking and registration for your trip.
-              </p>
-              <p className="text-[10px] tracking-[0.1em] font-sans mt-1" style={{ color: "var(--accent)" }}>
-                orbit.tawficshnoudeh.com
-              </p>
-            </div>
-          </a>
+            src="/orbit.png"
+            alt="Orbit"
+            name="Orbit"
+            desc="Hyperloop trip planner, booking and registration for your trip."
+            url="orbit.tawficshnoudeh.com"
+          />
         </FadeIn>
       </div>
     </section>

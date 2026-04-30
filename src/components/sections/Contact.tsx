@@ -2,6 +2,7 @@
 
 import FadeIn from "@/components/FadeIn";
 import SocialIcons from "@/components/SocialIcons";
+import { TiltCard } from "@/components/TiltCard";
 
 const contactRows = [
   {
@@ -35,7 +36,7 @@ export default function Contact() {
               className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
               style={{ color: "var(--text-subtle)" }}
             >
-              04 // Contact
+              05 // Contact
             </span>
           </div>
         </FadeIn>
@@ -50,13 +51,21 @@ export default function Contact() {
           </h2>
         </FadeIn>
 
-        {/* Contact rows */}
+        {/* Contact rows — TiltCard */}
         <FadeIn delay={0.2}>
-          <div className="border-t max-w-sm" style={{ borderColor: "var(--accent-dim)" }}>
-            {contactRows.map((row) => (
+          <TiltCard
+            tiltLimit={6}
+            scale={1.01}
+            perspective={900}
+            effect="gravitate"
+            spotlight
+            className="rounded-sm border max-w-sm"
+            style={{ borderColor: "var(--accent-dim)", background: "rgba(255,255,255,0.02)" }}
+          >
+            {contactRows.map((row, i) => (
               <div
                 key={row.label}
-                className="flex items-baseline justify-between py-5 border-b"
+                className={`flex items-baseline justify-between px-6 py-5 ${i < contactRows.length - 1 ? "border-b" : ""}`}
                 style={{ borderColor: "var(--accent-dim)" }}
               >
                 <span
@@ -69,14 +78,14 @@ export default function Contact() {
                   href={row.href}
                   target={row.href.startsWith("http") ? "_blank" : undefined}
                   rel={row.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="text-[13px] hover:text-accent transition-colors duration-200 font-sans"
+                  className="text-sm hover:text-accent transition-colors duration-200 font-sans"
                   style={{ color: "var(--accent)" }}
                 >
                   {row.display}
                 </a>
               </div>
             ))}
-          </div>
+          </TiltCard>
         </FadeIn>
       </div>
 

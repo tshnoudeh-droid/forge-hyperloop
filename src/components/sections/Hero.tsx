@@ -182,15 +182,23 @@ export default function Hero() {
               style={{ borderColor: "var(--hero-divider)" }}
             />
             <div className="flex items-end justify-between">
-              <p
-                className="text-sm tracking-[0.03em] leading-relaxed max-w-xs font-sans"
-                style={{ color: "var(--text-muted)" }}
-              >
-                One engineer. One mission.
-                <br />
-                Building the next generation of hyperloop systems.
-              </p>
-              <div className="flex flex-col items-center gap-3">
+              <div>
+                <p
+                  className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[-0.02em] leading-tight font-sans"
+                  style={{ color: "var(--text)" }}
+                >
+                  One engineer.
+                  <br />
+                  One mission.
+                </p>
+                <p
+                  className="mt-3 text-base tracking-[0.02em] font-sans"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  Building the next generation of hyperloop systems.
+                </p>
+              </div>
+              <div className="flex flex-col items-center gap-3 shrink-0 ml-8">
                 <span
                   className="text-[9px] tracking-[0.3em] uppercase font-sans"
                   style={{ color: "var(--text-subtle)" }}
