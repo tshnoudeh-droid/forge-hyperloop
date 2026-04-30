@@ -4,11 +4,51 @@ import dynamic from "next/dynamic";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
+import { TiltCard } from "@/components/TiltCard";
 
 const GLSLHills = dynamic(
   () => import("@/components/GLSLHills").then((m) => m.GLSLHills),
   { ssr: false }
 );
+
+const cards = [
+  {
+    label: "The Problem",
+    heading: "A world running on 20th-century infrastructure.",
+    lines: [
+      "30–45 day ocean voyages.",
+      "602g CO₂ per tonne-km by air.",
+      "$400B in food lost to spoilage.",
+      "$8/kg freight for semiconductors.",
+      "One canal blocks 12% of global trade.",
+    ],
+    accent: false,
+  },
+  {
+    label: "The Solution",
+    heading: "Hyperloop at 1,000 km/h. Zero carbon. Fraction of the cost.",
+    lines: [
+      "Shanghai to Singapore in under 5 hours.",
+      "Near-zero CO₂ on renewable energy.",
+      "$1.50–3.00/kg — between ocean and air.",
+      "Sealed pods. Zero handling transfers.",
+      "Continuous, automated, 24/7 network.",
+    ],
+    accent: true,
+  },
+  {
+    label: "The Mission",
+    heading: "Build the global cargo network. Then open it to the world.",
+    lines: [
+      "Cargo first — clearest financial case.",
+      "5 phases. 44,700 km. 30 cities.",
+      "$91B/year revenue at network maturity.",
+      "Passengers on the same infrastructure.",
+      "Make 30-day voyages a historical artifact.",
+    ],
+    accent: false,
+  },
+];
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -22,7 +62,7 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-between pt-32 pb-12 overflow-hidden"
       style={{ background: "var(--bg)" }}
     >
-      {/* Radial accent glow — switches opacity via --hero-glow CSS var */}
+      {/* Radial accent glow */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
@@ -56,7 +96,6 @@ export default function Hero() {
             >
               Forge Hyperloop
             </h1>
-            {/* Top rule — rgba(195,169,132,0.4) in both dark and light */}
             <div
               className="border-t mt-4 mx-8"
               style={{ borderColor: "rgba(195, 169, 132, 0.4)" }}
@@ -71,44 +110,80 @@ export default function Hero() {
           </FadeIn>
         </motion.div>
 
-        {/* Site links — Network + Lab */}
+        {/* Problem / Solution / Mission cards */}
         <FadeIn delay={1.08}>
-          <div className="mx-8 grid grid-cols-1 sm:grid-cols-2">
-            <a
-              href="https://network.forgehyperloop.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-5 sm:pr-8 sm:border-r border-b sm:border-b-0"
-              style={{ borderColor: "var(--accent-dim)" }}
-            >
-              <div className="text-[9px] tracking-[0.3em] uppercase font-sans mb-2" style={{ color: "var(--text-subtle)" }}>Network</div>
-              <div className="text-[11px] font-medium font-sans mb-1" style={{ color: "var(--accent)" }}>network.forgehyperloop.com</div>
-              <div className="text-[11px] leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>A global infrastructure simulation connecting 29 cities across 6 continents.</div>
-            </a>
-            <a
-              href="https://lab.forgehyperloop.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="py-5 sm:pl-8"
-            >
-              <div className="text-[9px] tracking-[0.3em] uppercase font-sans mb-2" style={{ color: "var(--text-subtle)" }}>Lab</div>
-              <div className="text-[11px] font-medium font-sans mb-1" style={{ color: "var(--accent)" }}>lab.forgehyperloop.com</div>
-              <div className="text-[11px] leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>The blueprint behind the hyperloop infrastructure.</div>
-            </a>
+          <div className="mx-8 grid grid-cols-1 sm:grid-cols-3 gap-3 mt-2">
+            {cards.map(({ label, heading, lines, accent }) => (
+              <TiltCard
+                key={label}
+                tiltLimit={8}
+                scale={1.02}
+                perspective={1000}
+                effect="gravitate"
+                spotlight
+                className="rounded-sm border p-6 flex flex-col gap-4"
+                style={{
+                  borderColor: accent ? "rgba(195,169,132,0.5)" : "var(--accent-dim)",
+                  background: accent
+                    ? "rgba(195,169,132,0.06)"
+                    : "rgba(255,255,255,0.02)",
+                }}
+              >
+                {/* Label */}
+                <span
+                  className="text-[9px] tracking-[0.35em] uppercase font-sans"
+                  style={{ color: accent ? "var(--accent)" : "var(--text-subtle)" }}
+                >
+                  {label}
+                </span>
+
+                {/* Heading */}
+                <p
+                  className="text-[13px] font-medium leading-snug font-sans"
+                  style={{ color: "var(--text)" }}
+                >
+                  {heading}
+                </p>
+
+                {/* Divider */}
+                <div
+                  className="border-t"
+                  style={{ borderColor: accent ? "rgba(195,169,132,0.3)" : "var(--accent-dim)" }}
+                />
+
+                {/* Lines */}
+                <ul className="space-y-2">
+                  {lines.map((line) => (
+                    <li
+                      key={line}
+                      className="flex items-start gap-2 text-[12px] leading-snug font-sans"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      <span
+                        className="mt-[3px] shrink-0 text-[8px]"
+                        style={{ color: accent ? "var(--accent)" : "var(--text-subtle)" }}
+                      >
+                        ◆
+                      </span>
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </TiltCard>
+            ))}
           </div>
         </FadeIn>
 
-        {/* Bottom row */}
+        {/* Bottom row — divider + scroll */}
         <FadeIn delay={1.15}>
-          <div className="px-8">
-            {/* Divider — 0.5 dark / 0.4 light, switches via --hero-divider */}
+          <div className="px-8 mt-6">
             <div
               className="border-t mb-8"
               style={{ borderColor: "var(--hero-divider)" }}
             />
             <div className="flex items-end justify-between">
               <p
-                className="text-base tracking-[0.03em] leading-relaxed max-w-xs"
+                className="text-sm tracking-[0.03em] leading-relaxed max-w-xs font-sans"
                 style={{ color: "var(--text-muted)" }}
               >
                 One engineer. One mission.
