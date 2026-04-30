@@ -56,14 +56,13 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
 
   return (
-    <section
-      ref={ref}
-      id="hero"
-      className="relative flex flex-col pt-32 pb-16 overflow-hidden"
-      style={{ background: "var(--bg)" }}
-    >
-      {/* Top half: Hero section with hills (min-h-screen equivalent) */}
-      <div className="relative min-h-[85vh] flex flex-col justify-between">
+    <>
+      <section
+        ref={ref}
+        id="hero"
+        className="relative h-screen flex flex-col justify-between pt-32 pb-12 overflow-hidden"
+        style={{ background: "var(--bg)" }}
+      >
         {/* Radial accent glow */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
@@ -72,13 +71,13 @@ export default function Hero() {
           }}
         />
 
-        {/* GLSL Hills — fills the top hero block */}
+        {/* GLSL Hills — fills the whole viewport hero */}
         <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.62]">
           <GLSLHills width="100%" height="100%" />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col justify-between flex-grow">
+        <div className="relative z-10 flex flex-col justify-between h-full pt-32 pb-12">
           {/* Section label */}
           <FadeIn delay={0.85} variant="left">
             <span
@@ -90,7 +89,7 @@ export default function Hero() {
           </FadeIn>
 
           {/* Main headline — parallax on scroll */}
-          <motion.div style={{ y }} className="pb-32">
+          <motion.div style={{ y }}>
             <FadeIn delay={1.0}>
               <h1
                 className="text-[12vw] md:text-[9vw] lg:text-[8vw] font-medium leading-none tracking-[-0.02em] uppercase whitespace-normal sm:whitespace-nowrap text-center font-sans px-4"
@@ -110,22 +109,17 @@ export default function Hero() {
               </p>
             </FadeIn>
           </motion.div>
+
+          {/* Spacer to push headline up and keep bottom clean */}
+          <div />
         </div>
-      </div>
+      </section>
 
       {/* Bottom block — Mission statement + Cards (Solid background below hills) */}
-      <div className="relative z-10 px-8">
-        {/* Single top divider */}
-        <FadeIn delay={1.1}>
-          <div
-            className="border-t pb-8"
-            style={{ borderColor: "var(--hero-divider)" }}
-          />
-        </FadeIn>
-
+      <section className="relative z-10 px-8 py-24 bg-[var(--bg)] border-t" style={{ borderColor: "var(--hero-divider)" }}>
         {/* Side-by-side Mission text + scroll */}
-        <FadeIn delay={1.15}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-10">
+        <FadeIn delay={0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-16">
             {/* Left side */}
             <p
               className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[-0.02em] leading-[1.1] font-sans"
@@ -160,7 +154,7 @@ export default function Hero() {
         </FadeIn>
 
         {/* The 3 Cards */}
-        <FadeIn delay={1.2}>
+        <FadeIn delay={0.2}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {cards.map(({ label, heading, lines, accent }) => (
               <TiltCard
@@ -215,7 +209,7 @@ export default function Hero() {
             ))}
           </div>
         </FadeIn>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
