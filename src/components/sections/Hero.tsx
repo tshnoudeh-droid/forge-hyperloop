@@ -110,78 +110,16 @@ export default function Hero() {
           </FadeIn>
         </motion.div>
 
-        {/* Problem / Solution / Mission cards */}
+        {/* Bottom block — divider, mission statement, cards, scroll */}
         <FadeIn delay={1.08}>
-          <div className="mx-8 grid grid-cols-1 sm:grid-cols-3 gap-3 mt-2">
-            {cards.map(({ label, heading, lines, accent }) => (
-              <TiltCard
-                key={label}
-                tiltLimit={8}
-                scale={1.02}
-                perspective={1000}
-                effect="gravitate"
-                spotlight
-                className="rounded-sm border p-6 flex flex-col gap-4"
-                style={{
-                  borderColor: accent ? "rgba(195,169,132,0.5)" : "var(--accent-dim)",
-                  background: accent
-                    ? "rgba(195,169,132,0.06)"
-                    : "rgba(255,255,255,0.02)",
-                }}
-              >
-                {/* Label */}
-                <span
-                  className="text-[9px] tracking-[0.35em] uppercase font-sans"
-                  style={{ color: accent ? "var(--accent)" : "var(--text-subtle)" }}
-                >
-                  {label}
-                </span>
-
-                {/* Heading */}
-                <p
-                  className="text-[13px] font-medium leading-snug font-sans"
-                  style={{ color: "var(--text)" }}
-                >
-                  {heading}
-                </p>
-
-                {/* Divider */}
-                <div
-                  className="border-t"
-                  style={{ borderColor: accent ? "rgba(195,169,132,0.3)" : "var(--accent-dim)" }}
-                />
-
-                {/* Lines */}
-                <ul className="space-y-2">
-                  {lines.map((line) => (
-                    <li
-                      key={line}
-                      className="flex items-start gap-2 text-[12px] leading-snug font-sans"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      <span
-                        className="mt-[3px] shrink-0 text-[8px]"
-                        style={{ color: accent ? "var(--accent)" : "var(--text-subtle)" }}
-                      >
-                        ◆
-                      </span>
-                      {line}
-                    </li>
-                  ))}
-                </ul>
-              </TiltCard>
-            ))}
-          </div>
-        </FadeIn>
-
-        {/* Bottom row — divider + scroll */}
-        <FadeIn delay={1.15}>
           <div className="px-8 mt-6">
             <div
               className="border-t mb-8"
               style={{ borderColor: "var(--hero-divider)" }}
             />
-            <div className="flex items-end justify-between">
+
+            {/* Mission statement */}
+            <div className="flex items-start justify-between mb-10">
               <div>
                 <p
                   className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[-0.02em] leading-tight font-sans"
@@ -198,7 +136,7 @@ export default function Hero() {
                   Building the next generation of hyperloop systems.
                 </p>
               </div>
-              <div className="flex flex-col items-center gap-3 shrink-0 ml-8">
+              <div className="flex flex-col items-center gap-3 shrink-0 ml-8 mt-2">
                 <span
                   className="text-[9px] tracking-[0.3em] uppercase font-sans"
                   style={{ color: "var(--text-subtle)" }}
@@ -210,6 +148,61 @@ export default function Hero() {
                   style={{ background: "var(--accent-dim)" }}
                 />
               </div>
+            </div>
+
+            {/* Problem / Solution / Mission cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {cards.map(({ label, heading, lines, accent }) => (
+                <TiltCard
+                  key={label}
+                  tiltLimit={8}
+                  scale={1.02}
+                  perspective={1000}
+                  effect="gravitate"
+                  spotlight
+                  className="rounded-sm border p-6 flex flex-col gap-4"
+                  style={{
+                    borderColor: accent ? "rgba(195,169,132,0.5)" : "var(--accent-dim)",
+                    background: accent
+                      ? "rgba(195,169,132,0.06)"
+                      : "rgba(255,255,255,0.02)",
+                  }}
+                >
+                  <span
+                    className="text-[9px] tracking-[0.35em] uppercase font-sans"
+                    style={{ color: accent ? "var(--accent)" : "var(--text-subtle)" }}
+                  >
+                    {label}
+                  </span>
+                  <p
+                    className="text-[13px] font-medium leading-snug font-sans"
+                    style={{ color: "var(--text)" }}
+                  >
+                    {heading}
+                  </p>
+                  <div
+                    className="border-t"
+                    style={{ borderColor: accent ? "rgba(195,169,132,0.3)" : "var(--accent-dim)" }}
+                  />
+                  <ul className="space-y-2">
+                    {lines.map((line) => (
+                      <li
+                        key={line}
+                        className="flex items-start gap-2 text-[12px] leading-snug font-sans"
+                        style={{ color: "var(--text-muted)" }}
+                      >
+                        <span
+                          className="mt-[3px] shrink-0 text-[8px]"
+                          style={{ color: accent ? "var(--accent)" : "var(--text-subtle)" }}
+                        >
+                          ◆
+                        </span>
+                        {line}
+                      </li>
+                    ))}
+                  </ul>
+                </TiltCard>
+              ))}
             </div>
           </div>
         </FadeIn>
