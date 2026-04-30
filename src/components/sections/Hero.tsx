@@ -122,8 +122,8 @@ export default function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
             {/* Left side */}
             <p
-              className="text-2xl md:text-3xl font-medium tracking-[-0.01em] leading-snug font-sans"
-              style={{ color: "var(--text)" }}
+              className="text-base md:text-lg tracking-[0.02em] font-sans"
+              style={{ color: "var(--text-muted)" }}
             >
               One mission. One engineer.
             </p>
@@ -131,7 +131,7 @@ export default function Hero() {
             {/* Right side + scroll */}
             <div className="flex items-center justify-between">
               <p
-                className="text-sm md:text-base tracking-[0.02em] leading-relaxed font-sans"
+                className="text-base md:text-lg tracking-[0.02em] font-sans"
                 style={{ color: "var(--text-muted)" }}
               >
                 — building the next generation of transportation systems.
