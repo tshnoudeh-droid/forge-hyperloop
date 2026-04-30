@@ -119,22 +119,22 @@ export default function Hero() {
       <section className="relative z-10 px-8 py-24 bg-[var(--bg)] border-t" style={{ borderColor: "var(--hero-divider)" }}>
         {/* Side-by-side Mission text + scroll */}
         <FadeIn delay={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
             {/* Left side */}
             <p
-              className="text-3xl md:text-4xl lg:text-5xl font-medium tracking-[-0.02em] leading-[1.1] font-sans"
+              className="text-2xl md:text-3xl font-medium tracking-[-0.01em] leading-snug font-sans"
               style={{ color: "var(--text)" }}
             >
-              One engineer.<br />One mission.
+              One mission. One engineer.
             </p>
 
             {/* Right side + scroll */}
-            <div className="flex items-start justify-between">
+            <div className="flex items-center justify-between">
               <p
-                className="text-base tracking-[0.02em] leading-relaxed font-sans"
-                style={{ color: "var(--text-muted)", marginTop: "6px" }}
+                className="text-sm md:text-base tracking-[0.02em] leading-relaxed font-sans"
+                style={{ color: "var(--text-muted)" }}
               >
-                Building the next generation<br />of hyperloop systems.
+                — building the next generation of transportation systems.
               </p>
 
               <div className="flex flex-col items-center gap-3 shrink-0 ml-8">
