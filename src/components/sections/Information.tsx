@@ -19,6 +19,13 @@ const articles = [
       "Revenue model, pod fleet math, build costs, and the path to $91.5B/year. Every number sourced from UNCTAD, IATA, IMARC, and peer-reviewed studies.",
     label: "Economics",
   },
+  {
+    href: "/information/tech-gap",
+    title: "Forge Hyperloop: The Sub-5-Year Tech Gap",
+    description:
+      "Every core engineering barrier will be solved at test-track scale by 2030. Levitation done. Lane switching done. Vacuum at short scale done. The case for first commercial cargo.",
+    label: "Tech Gap",
+  },
 ];
 
 export default function InformationSection() {

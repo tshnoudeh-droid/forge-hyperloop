@@ -22,6 +22,13 @@ const articles = [
     description:
       "The full financial case — cargo tolls, pod fleet math, build costs, six use cases, and the $91B/year revenue case at network maturity.",
   },
+  {
+    href: "/information/tech-gap",
+    label: "Tech Gap",
+    title: "Forge Hyperloop: The Sub-5-Year Tech Gap",
+    description:
+      "Every core engineering barrier to commercial hyperloop will be demonstrably solved at test-track scale by 2030. The case for the first commercial cargo corridor.",
+  },
 ];
 
 export default function Information() {
