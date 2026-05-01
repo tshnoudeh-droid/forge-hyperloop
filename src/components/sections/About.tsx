@@ -8,6 +8,7 @@ const stats = [
   { label: "Founder", value: "Tawfic Alexander Shnoudeh" },
   { label: "Role", value: "Founder / Engineer" },
   { label: "Discipline", value: "Systems Engineering" },
+  { label: "Strategy", value: "Cargo first. Passengers second." },
 ];
 
 export default function About() {
@@ -44,14 +45,10 @@ export default function About() {
             </h2>
             <div className="space-y-5 text-base leading-[1.75] max-w-sm" style={{ color: "var(--text-muted)" }}>
               <p>
-                Forge Hyperloop is an independent engineering project focused on
-                designing and testing competitive hyperloop technology. I build
-                real hardware, run real simulations.
+                Forge Hyperloop is an independent engineering project building real hyperloop technology from first principles. Hardware, simulation, and systems design. One person.
               </p>
               <p>
-                Hyperloop is a proposed mode of passenger and cargo transport
-                in which pods travel through a near-vacuum tube at speeds
-                exceeding 1,000 km/h. I am working to make it real.
+                Hyperloop moves sealed pods through a near-vacuum tube at speeds above 1,000 km/h. No jet fuel. No container ships. No dependency on a canal that can be blocked by a single stuck freighter.
               </p>
               <p>
                 My work spans mechanical engineering, electrical systems,

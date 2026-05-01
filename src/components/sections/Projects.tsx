@@ -57,7 +57,7 @@ function LabCard() {
               className="text-[11px] leading-relaxed"
               style={{ color: "var(--text-muted)" }}
             >
-              The blueprint behind the hyperloop infrastructure, housing the software models.
+              Physics models, cost models, and route logic for every segment of the network. The engineering foundation, made transparent.
             </p>
             <p
               className="text-[10px] tracking-[0.1em] font-sans mt-1"
@@ -197,7 +197,7 @@ export default function Projects() {
           className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] mb-16"
           style={{ color: "var(--text)" }}
         >
-          Software.
+          Software. Built to prove the network is real.
         </h2>
       </FadeIn>
 
@@ -209,7 +209,7 @@ export default function Projects() {
             src="/network.png"
             alt="Network"
             name="Network"
-            desc="A global infrastructure simulation connecting 29 cities across 6 continents."
+            desc="A live 3D simulation of the full network. 30 cities. 6 continents. Every route, every phase."
             url="network.forgehyperloop.com"
           />
         </FadeIn>
@@ -226,7 +226,7 @@ export default function Projects() {
             src="/orbit.png"
             alt="Orbit"
             name="Orbit"
-            desc="Hyperloop trip planner, booking and registration for your trip."
+            desc="A trip planning simulation. Models cargo routing decisions, transit times, and cost comparisons against current logistics options. Built to show the use case is understood, not assumed."
             url="orbit.tawficshnoudeh.com"
           />
         </FadeIn>

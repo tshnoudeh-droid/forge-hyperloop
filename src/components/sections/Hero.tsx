@@ -19,8 +19,8 @@ const cards = [
       "30–45 day ocean voyages.",
       "602g CO₂ per tonne-km by air.",
       "$400B in food lost to spoilage.",
-      "$8/kg freight for semiconductors.",
-      "One canal blocks 12% of global trade.",
+      "$4–8/kg to air freight semiconductors from Asian fabs.",
+      "One canal carries 12% of global trade. One stuck ship proved it.",
     ],
     accent: false,
   },
@@ -30,9 +30,9 @@ const cards = [
     lines: [
       "Shanghai to Singapore in under 5 hours.",
       "Near-zero CO₂ on renewable energy.",
-      "$1.50–3.00/kg — between ocean and air.",
+      "$1.50–3.00/kg. Faster than ocean. Cheaper than air.",
       "Sealed pods. Zero handling transfers.",
-      "Continuous, automated, 24/7 network.",
+      "Automated dispatch. 24/7. No port dwell time.",
     ],
     accent: true,
   },
@@ -41,10 +41,10 @@ const cards = [
     heading: "Build the global cargo network. Then open it to the world.",
     lines: [
       "Cargo first — clearest financial case.",
-      "5 phases. 44,700 km. 30 cities.",
-      "$91B/year revenue at network maturity.",
+      "5 phases. 44,700 km. ~30 cities.",
+      "$91.5B/year at network maturity. Less than 1% of global logistics.",
       "Passengers on the same infrastructure.",
-      "Make 30-day voyages a historical artifact.",
+      "Turn 30-day ocean voyages into a historical artifact.",
     ],
     accent: false,
   },
@@ -125,7 +125,7 @@ export default function Hero() {
               className="text-base md:text-lg tracking-[0.02em] font-sans"
               style={{ color: "var(--text-muted)" }}
             >
-              One mission. One engineer.
+              One mission. One network. One engineer.
             </p>
 
             {/* Right side + scroll */}
@@ -134,7 +134,7 @@ export default function Hero() {
                 className="text-base md:text-lg tracking-[0.02em] font-sans"
                 style={{ color: "var(--text-muted)" }}
               >
-                — building the next generation of transportation systems.
+                Building the infrastructure the 21st century was promised.
               </p>
 
               <div className="flex flex-col items-center gap-3 shrink-0 ml-8">

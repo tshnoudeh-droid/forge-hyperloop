@@ -9,14 +9,14 @@ const articles = [
     href: "/information/master-plan",
     title: "The Forge Hyperloop Master Plan",
     description:
-      "A phased global cargo network. Starting where trade flows fastest, building until every continent is connected.",
+      "The full network buildout. Phase by phase, city by city. From the first Southeast Asia corridor to a 30-city global grid.",
     label: "Master Plan",
   },
   {
     href: "/information/economics",
     title: "Economics Model",
     description:
-      "The full financial case — cargo tolls, pod fleet math, build costs, and the $91B/year revenue case at network maturity.",
+      "Revenue model, pod fleet math, build costs, and the path to $91.5B/year. Every number sourced from UNCTAD, IATA, IMARC, and peer-reviewed studies.",
     label: "Economics",
   },
 ];
@@ -53,7 +53,7 @@ export default function InformationSection() {
               className="text-base leading-[1.75] max-w-sm"
               style={{ color: "var(--text-muted)" }}
             >
-              Extended articles covering the engineering, economics, and strategic rationale behind Forge Hyperloop. Each piece is written to survive scrutiny from an informed investor or engineer.
+              Engineering reports, financial models, and strategic analysis. Written to hold up under scrutiny from an engineer or an investor. No hand-waving.
             </p>
           </div>
         </FadeIn>
