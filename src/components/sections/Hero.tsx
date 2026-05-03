@@ -1,15 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
 import { TiltCard } from "@/components/TiltCard";
-
-const GLSLHills = dynamic(
-  () => import("@/components/GLSLHills").then((m) => m.GLSLHills),
-  { ssr: false }
-);
 
 const cards = [
   {
@@ -63,18 +57,21 @@ export default function Hero() {
         className="relative h-screen flex flex-col justify-between pt-32 pb-12 overflow-hidden"
         style={{ background: "var(--bg)" }}
       >
-        {/* Radial accent glow */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse 80% 60% at 50% 40%, var(--hero-glow) 0%, transparent 100%)",
-          }}
+        {/* Video background */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+          src="/hero.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
         />
 
-        {/* GLSL Hills — fills the whole viewport hero */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.62]">
-          <GLSLHills width="100%" height="100%" />
-        </div>
+        {/* Dark overlay so text stays legible */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{ background: "rgba(10,10,10,0.55)" }}
+        />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-between h-full pt-32 pb-12">
