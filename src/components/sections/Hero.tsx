@@ -57,9 +57,10 @@ export default function Hero() {
         className="relative h-screen flex flex-col justify-between pt-32 pb-12 overflow-hidden"
         style={{ background: "var(--bg)" }}
       >
-        {/* Video background */}
+        {/* Video background — height 110% clips Runway watermark via section overflow-hidden */}
         <video
-          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+          className="absolute top-0 left-0 w-full object-cover z-0 pointer-events-none"
+          style={{ height: "110%", objectPosition: "center top" }}
           src="/hero.mp4"
           autoPlay
           loop
@@ -90,7 +91,7 @@ export default function Hero() {
             <FadeIn delay={1.0}>
               <h1
                 className="text-[12vw] md:text-[9vw] lg:text-[8vw] font-medium leading-none tracking-[-0.02em] uppercase whitespace-normal sm:whitespace-nowrap text-center font-sans px-4"
-                style={{ color: "var(--text)" }}
+                style={{ color: "#ffffff" }}
               >
                 Forge Hyperloop
               </h1>
