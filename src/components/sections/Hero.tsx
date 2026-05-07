@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
 import { TiltCard } from "@/components/TiltCard";
+import { GLSLHills } from "@/components/GLSLHills";
 
 const cards = [
   {
@@ -57,22 +58,10 @@ export default function Hero() {
         className="relative h-screen flex flex-col justify-between pt-32 pb-12 overflow-hidden"
         style={{ background: "var(--bg)" }}
       >
-        {/* Video background — height 110% clips Runway watermark via section overflow-hidden */}
-        <video
-          className="absolute top-0 left-0 w-full object-cover z-0 pointer-events-none"
-          style={{ height: "110%", objectPosition: "center top" }}
-          src="/hero.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        />
-
-        {/* Dark overlay so text stays legible */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{ background: "rgba(10,10,10,0.55)" }}
-        />
+        {/* GLSL Hills background */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <GLSLHills width="100%" height="100%" />
+        </div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-between h-full pt-32 pb-12">
@@ -113,46 +102,22 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Bottom block — Mission statement + Cards (Solid background below hills) */}
-      <section className="relative z-10 px-8 py-24 bg-[var(--bg)] border-t" style={{ borderColor: "var(--hero-divider)" }}>
-        {/* Side-by-side Mission text + scroll */}
-        <FadeIn delay={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
-            {/* Left side */}
-            <p
-              className="text-base md:text-lg tracking-[0.02em] font-sans"
-              style={{ color: "var(--text-muted)" }}
-            >
-              One mission. One network. One engineer.
-            </p>
+      {/* Bottom block — Problem / Solution / Mission */}
+      <section className="relative z-10 px-8 pt-28 pb-32 bg-[var(--bg)] border-t" style={{ borderColor: "var(--hero-divider)" }}>
 
-            {/* Right side + scroll */}
-            <div className="flex items-center justify-between">
-              <p
-                className="text-base md:text-lg tracking-[0.02em] font-sans"
-                style={{ color: "var(--text-muted)" }}
-              >
-                Building the infrastructure the 21st century was promised.
-              </p>
-
-              <div className="flex flex-col items-center gap-3 shrink-0 ml-8">
-                <span
-                  className="text-[9px] tracking-[0.3em] uppercase font-sans"
-                  style={{ color: "var(--text-subtle)" }}
-                >
-                  Scroll
-                </span>
-                <div
-                  className="w-px h-14"
-                  style={{ background: "var(--accent-dim)" }}
-                />
-              </div>
-            </div>
-          </div>
+        {/* Statement anchor */}
+        <FadeIn delay={0.05}>
+          <h2
+            className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-[-0.025em] leading-[0.95] mb-6 font-sans max-w-4xl"
+            style={{ color: "var(--text)" }}
+          >
+            The infrastructure the 21st century was promised.
+          </h2>
+          <div className="border-t mt-10 mb-14" style={{ borderColor: "var(--accent-dim)" }} />
         </FadeIn>
 
-        {/* The 3 Cards */}
-        <FadeIn delay={0.2}>
+        {/* Cards */}
+        <FadeIn delay={0.15}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {cards.map(({ label, heading, lines, accent }) => (
               <TiltCard
@@ -162,12 +127,13 @@ export default function Hero() {
                 perspective={1000}
                 effect="gravitate"
                 spotlight
-                className="rounded-sm border p-6 flex flex-col gap-4"
+                className="rounded-sm border p-8 flex flex-col gap-5"
                 style={{
                   borderColor: accent ? "rgba(195,169,132,0.5)" : "var(--accent-dim)",
                   background: accent
                     ? "rgba(195,169,132,0.06)"
                     : "rgba(255,255,255,0.02)",
+                  minHeight: "380px",
                 }}
               >
                 <span
@@ -177,7 +143,7 @@ export default function Hero() {
                   {label}
                 </span>
                 <p
-                  className="text-[13px] font-medium leading-snug font-sans"
+                  className="text-[16px] md:text-[18px] font-medium leading-snug font-sans"
                   style={{ color: "var(--text)" }}
                 >
                   {heading}
@@ -186,7 +152,7 @@ export default function Hero() {
                   className="border-t"
                   style={{ borderColor: accent ? "rgba(195,169,132,0.3)" : "var(--accent-dim)" }}
                 />
-                <ul className="space-y-2">
+                <ul className="space-y-3 flex-1">
                   {lines.map((line) => (
                     <li
                       key={line}

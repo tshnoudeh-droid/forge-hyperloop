@@ -8,6 +8,112 @@ import { TiltCard } from "@/components/TiltCard";
 
 const labModules = ["Conduit", "Flux", "Shell"];
 
+const flagship = [
+  {
+    index: "A — 01",
+    name: "Aether I",
+    tagline: "Description incoming.",
+    articleUrl: "",
+    status: "Core Platform",
+    gifSrc: "",
+  },
+  {
+    index: "O — 01",
+    name: "Origin I",
+    tagline: "Description incoming.",
+    articleUrl: "",
+    status: "Core Platform",
+    gifSrc: "",
+  },
+];
+
+function FlagshipCard({
+  index,
+  name,
+  tagline,
+  articleUrl,
+  status,
+  gifSrc,
+}: (typeof flagship)[number]) {
+  return (
+    <div
+      className="border flex flex-col"
+      style={{ borderColor: "var(--accent-dim)" }}
+    >
+      {/* Preview — swap inner content with <img> when GIF arrives */}
+      <div
+        className="relative w-full overflow-hidden border-b flex items-end"
+        style={{
+          aspectRatio: "4/3",
+          borderColor: "var(--accent-dim)",
+          background: "#080808",
+        }}
+      >
+        {gifSrc ? (
+          <img
+            src={gifSrc}
+            alt={name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <span
+            className="px-5 pb-5 text-[9px] tracking-[0.3em] uppercase font-sans"
+            style={{ color: "var(--text-subtle)" }}
+          >
+            Preview incoming
+          </span>
+        )}
+      </div>
+
+      {/* Index + Status strip */}
+      <div
+        className="flex items-center justify-between px-6 py-3 border-b"
+        style={{ borderColor: "var(--accent-dim)" }}
+      >
+        <span
+          className="text-[9px] tracking-[0.3em] uppercase font-sans"
+          style={{ color: "var(--text-subtle)" }}
+        >
+          {index}
+        </span>
+        <span
+          className="text-[9px] tracking-[0.25em] uppercase font-sans"
+          style={{ color: "var(--accent)" }}
+        >
+          {status}
+        </span>
+      </div>
+
+      {/* Name + details */}
+      <div className="flex flex-col gap-4 px-6 pt-7 pb-9">
+        <h3
+          className="text-[2.2rem] md:text-[2.6rem] font-medium tracking-[-0.02em] leading-none font-sans"
+          style={{ color: "var(--text)" }}
+        >
+          {name}
+        </h3>
+        <p
+          className="text-[12px] leading-relaxed font-sans max-w-xs"
+          style={{ color: "var(--text-muted)" }}
+        >
+          {tagline}
+        </p>
+        {articleUrl && (
+          <a
+            href={articleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] tracking-[0.2em] uppercase font-sans mt-1 self-start"
+            style={{ color: "var(--accent)" }}
+          >
+            Read Article →
+          </a>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function LabCard() {
   const [open, setOpen] = useState(false);
 
@@ -179,7 +285,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex flex-col justify-center px-8 py-24"
+      className="flex flex-col px-8 py-24"
     >
       <FadeIn variant="left">
         <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
@@ -197,8 +303,52 @@ export default function Projects() {
           className="text-3xl md:text-[2.6rem] font-medium tracking-[-0.015em] mb-16"
           style={{ color: "var(--text)" }}
         >
-          Software. Built to prove the network is real.
+          Built to prove the network is real.
         </h2>
+      </FadeIn>
+
+      {/* The Hardware Backbone */}
+      <FadeIn delay={0.12}>
+        <div className="border-t mb-3" style={{ borderColor: "var(--accent-dim)" }}>
+          <span
+            className="inline-block mt-4 text-[9px] tracking-[0.35em] uppercase font-sans"
+            style={{ color: "var(--text-subtle)" }}
+          >
+            The Hardware Backbone
+          </span>
+        </div>
+        <p
+          className="text-[13px] leading-relaxed mb-10 font-sans max-w-xl"
+          style={{ color: "var(--text-muted)" }}
+        >
+          Aether I and Origin I are the physical proof. Two platforms that demonstrate the technology is real, the engineering is done, and the network can be built.
+        </p>
+      </FadeIn>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+        {flagship.map((project, i) => (
+          <FadeIn key={project.name} delay={0.18 + i * 0.1}>
+            <FlagshipCard {...project} />
+          </FadeIn>
+        ))}
+      </div>
+
+      {/* The Software */}
+      <FadeIn delay={0.1}>
+        <div className="border-t mb-3" style={{ borderColor: "var(--accent-dim)" }}>
+          <span
+            className="inline-block mt-4 text-[9px] tracking-[0.35em] uppercase font-sans"
+            style={{ color: "var(--text-subtle)" }}
+          >
+            The Software
+          </span>
+        </div>
+        <p
+          className="text-[13px] leading-relaxed mb-10 font-sans max-w-xl"
+          style={{ color: "var(--text-muted)" }}
+        >
+          Every simulation, model, and tool built to make the network transparent.
+        </p>
       </FadeIn>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

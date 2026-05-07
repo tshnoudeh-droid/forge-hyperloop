@@ -14,9 +14,9 @@ interface GLSLHillsProps {
 export function GLSLHills({
   width = '100%',
   height = '100%',
-  cameraZ = 105,
+  cameraZ = 125,
   planeSize = 256,
-  speed = 0.3,
+  speed = 0.5,
 }: GLSLHillsProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -114,15 +114,13 @@ export function GLSLHills({
                 float sin1 = sin(radians(updatePosition.x / 128.0 * 90.0));
                 vec3 noisePosition = updatePosition + vec3(0.0, 0.0, time * -30.0);
                 float noise1 = cnoise(noisePosition * 0.08);
-                float noise2 = cnoise(noisePosition * 0.05);
-                float noise3 = cnoise(noisePosition * 0.35);
-                float noise4 = cnoise(noisePosition * 0.15);
+                float noise2 = cnoise(noisePosition * 0.06);
+                float noise3 = cnoise(noisePosition * 0.4);
                 vec3 lastPosition = updatePosition + vec3(0.0,
-                  noise1 * sin1 * 18.0
-                  + noise2 * sin1 * 14.0
-                  + noise3 * (abs(sin1) * 3.5 + 0.8)
-                  + noise4 * sin1 * 8.0
-                  + pow(sin1, 2.0) * 62.0, 0.0);
+                  noise1 * sin1 * 8.0
+                  + noise2 * sin1 * 8.0
+                  + noise3 * (abs(sin1) * 2.0 + 0.5)
+                  + pow(sin1, 2.0) * 40.0, 0.0);
                 vPosition = lastPosition;
                 gl_Position = projectionMatrix * modelViewMatrix * vec4(lastPosition, 1.0);
               }
@@ -133,10 +131,8 @@ export function GLSLHills({
               varying vec3 vPosition;
 
               void main(void) {
-                float dist = length(vPosition);
-                float opacity = clamp((110.0 - dist) / 220.0, 0.0, 1.0) * 0.78;
-                // Sand accent: #C4A882
-                vec3 color = vec3(0.769, 0.659, 0.510);
+                float opacity = (96.0 - length(vPosition)) / 256.0 * 0.6;
+                vec3 color = vec3(0.6);
                 gl_FragColor = vec4(color, opacity);
               }
             `,
@@ -152,7 +148,7 @@ export function GLSLHills({
 
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: false })
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000)
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000)
     const clock = new THREE.Clock()
     const plane = new Plane()
     let rafId = 0
@@ -172,8 +168,8 @@ export function GLSLHills({
 
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.setClearColor(0x000000, 0)
-    camera.position.set(0, 22, cameraZ)
-    camera.lookAt(new THREE.Vector3(0, 32, 0))
+    camera.position.set(0, 16, cameraZ)
+    camera.lookAt(new THREE.Vector3(0, 28, 0))
     scene.add(plane.mesh)
     window.addEventListener('resize', resize)
     renderLoop()
