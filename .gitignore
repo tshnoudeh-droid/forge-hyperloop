@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# large deck assets (host externally)
+# large deck source files (use exported PDF instead)
 /public/*.pptx
 /public/*.ppsx
 /public/*.key
