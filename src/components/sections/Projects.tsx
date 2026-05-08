@@ -12,7 +12,7 @@ const flagship = [
   {
     index: "A — 01",
     name: "Aether I",
-    tagline: "Description incoming.",
+    tagline: "Magnetic levitation proven from scratch. ESP32, C++, PID controller, EMS. The same electromagnetic suspension that holds a cargo pod at 1,000 km/h. Levitation height: 20mm.",
     articleUrl: "",
     status: "Core Platform",
     gifSrc: "",
@@ -20,7 +20,7 @@ const flagship = [
   {
     index: "O — 01",
     name: "Origin I",
-    tagline: "Description incoming.",
+    tagline: "A physical vacuum chamber built from scratch in 30 days. 99.9% vacuum achieved. 1,000x drag reduction at operating pressure. Forge Hyperloop started here.",
     articleUrl: "",
     status: "Core Platform",
     gifSrc: "",
@@ -359,7 +359,7 @@ export default function Projects() {
             src="/network.png"
             alt="Network"
             name="Network"
-            desc="A live 3D simulation of the full network. 30 cities. 6 continents. Every route, every phase."
+            desc="A live 3D simulation of the full network. 37 cities. 6 continents. Every route, every phase."
             url="network.forgehyperloop.com"
           />
         </FadeIn>

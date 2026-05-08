@@ -11,11 +11,11 @@ const cards = [
     label: "The Problem",
     heading: "A world running on 20th-century infrastructure.",
     lines: [
-      "30–45 day ocean voyages.",
+      "30–45 day ocean voyages. Asia to Europe.",
       "602g CO₂ per tonne-km by air.",
-      "$400B in food lost to spoilage.",
+      "Automotive lines lose $2.3M per hour when supply chains stall.",
+      "Pharma shipments lost to a single degree of temperature deviation.",
       "$4–8/kg to air freight semiconductors from Asian fabs.",
-      "One canal carries 12% of global trade. One stuck ship proved it.",
     ],
     accent: false,
   },
@@ -36,7 +36,7 @@ const cards = [
     heading: "Build the global cargo network. Then open it to the world.",
     lines: [
       "Cargo first — clearest financial case.",
-      "5 phases. 44,700 km. ~30 cities.",
+      "5 phases. 44,700 km. 37 cities.",
       "$91.5B/year at network maturity. Less than 1% of global logistics.",
       "Passengers on the same infrastructure.",
       "Turn 30-day ocean voyages into a historical artifact.",

@@ -36,7 +36,7 @@ export default function Contact() {
               className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
               style={{ color: "var(--text-subtle)" }}
             >
-              05 // Contact
+              06 // Contact
             </span>
           </div>
         </FadeIn>
