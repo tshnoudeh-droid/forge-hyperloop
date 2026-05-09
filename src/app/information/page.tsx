@@ -9,6 +9,13 @@ export const metadata = {
 
 const articles = [
   {
+    href: "/information/origin-i",
+    label: "Build Log",
+    title: "Origin I — The Vacuum Chamber",
+    description:
+      "A physical vacuum chamber built from scratch in 30 days. 99.9% vacuum achieved. 1,000x drag reduction at operating pressure.",
+  },
+  {
     href: "/information/master-plan",
     label: "Master Plan",
     title: "The Forge Hyperloop Master Plan",
@@ -66,14 +73,6 @@ export default function Information() {
               As development continues, this section will be updated with test results, manufacturing logs, and detailed subsystem breakdowns.
             </p>
 
-            <h2 className="text-xl font-medium mt-10 mb-3 font-sans" style={{ color: "var(--text)" }}>
-              Current Focus
-            </h2>
-            <ul className="space-y-2">
-              <li>• Finalizing the CAD for the primary chassis structure.</li>
-              <li>• Running thermal and aerodynamic simulations.</li>
-              <li>• Sourcing components for the linear induction motor (LIM) prototype.</li>
-            </ul>
           </div>
 
           {/* Articles */}
@@ -94,7 +93,7 @@ export default function Information() {
                 >
                   <div className="flex flex-col gap-2">
                     <span
-                      className="text-[10px] tracking-[0.3em] uppercase font-sans"
+                      className="text-[14px] tracking-[0.3em] uppercase font-sans"
                       style={{ color: "var(--text-subtle)" }}
                     >
                       {label}

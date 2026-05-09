@@ -68,7 +68,7 @@ export default function Hero() {
           {/* Section label */}
           <FadeIn delay={0.85} variant="left">
             <span
-              className="px-8 text-[10px] tracking-[0.35em] uppercase font-sans"
+              className="px-8 text-[14px] tracking-[0.35em] uppercase font-sans"
               style={{ color: "var(--hero-label)" }}
             >
               01 // Overview
@@ -80,7 +80,7 @@ export default function Hero() {
             <FadeIn delay={1.0}>
               <h1
                 className="text-[12vw] md:text-[9vw] lg:text-[8vw] font-medium leading-none tracking-[-0.02em] uppercase whitespace-normal sm:whitespace-nowrap text-center font-sans px-4"
-                style={{ color: "#ffffff" }}
+                style={{ color: "var(--text)" }}
               >
                 Forge Hyperloop
               </h1>
@@ -137,7 +137,7 @@ export default function Hero() {
                 }}
               >
                 <span
-                  className="text-[9px] tracking-[0.35em] uppercase font-sans"
+                  className="text-[15px] tracking-[0.35em] uppercase font-sans"
                   style={{ color: accent ? "var(--accent)" : "var(--text-subtle)" }}
                 >
                   {label}
@@ -156,7 +156,7 @@ export default function Hero() {
                   {lines.map((line) => (
                     <li
                       key={line}
-                      className="flex items-start gap-2 text-[12px] leading-snug font-sans"
+                      className="flex items-start gap-2 text-[14px] leading-snug font-sans"
                       style={{ color: "var(--text-muted)" }}
                     >
                       <span

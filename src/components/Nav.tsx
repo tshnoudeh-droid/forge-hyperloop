@@ -49,13 +49,14 @@ const externalLinks = [
 
 const internalLinks = [
   { label: "About", href: "/#about" },
+  { label: "Vision", href: "/#vision" },
   { label: "Projects", href: "/#projects" },
   { label: "Information", href: "/information" },
   { label: "Contact", href: "/#contact" },
 ];
 
 const linkClass =
-  "text-[12px] tracking-[0.18em] uppercase hover:text-accent transition-colors duration-200 font-sans";
+  "text-[14px] tracking-[0.18em] uppercase hover:text-accent transition-colors duration-200 font-sans";
 
 export default function Nav() {
   return (

@@ -14,16 +14,20 @@ const flagship = [
     name: "Aether I",
     tagline: "Magnetic levitation proven from scratch. ESP32, C++, PID controller, EMS. The same electromagnetic suspension that holds a cargo pod at 1,000 km/h. Levitation height: 20mm.",
     articleUrl: "",
+    articleLabel: "",
     status: "Core Platform",
-    gifSrc: "",
+    imageSrc: "/aether-1.png",
+    imageLayout: "portrait" as const,
   },
   {
     index: "O — 01",
     name: "Origin I",
     tagline: "A physical vacuum chamber built from scratch in 30 days. 99.9% vacuum achieved. 1,000x drag reduction at operating pressure. Forge Hyperloop started here.",
-    articleUrl: "",
+    articleUrl: "/information/origin-i",
+    articleLabel: "Read the build story",
     status: "Core Platform",
-    gifSrc: "",
+    imageSrc: "/origin-1.png",
+    imageLayout: "panoramic" as const,
   },
 ];
 
@@ -32,36 +36,40 @@ function FlagshipCard({
   name,
   tagline,
   articleUrl,
+  articleLabel,
   status,
-  gifSrc,
+  imageSrc,
+  imageLayout,
 }: (typeof flagship)[number]) {
   return (
     <div
       className="border flex flex-col"
       style={{ borderColor: "var(--accent-dim)" }}
     >
-      {/* Preview — swap inner content with <img> when GIF arrives */}
+      {/* Image — full-width, uncropped */}
       <div
-        className="relative w-full overflow-hidden border-b flex items-end"
-        style={{
-          aspectRatio: "4/3",
-          borderColor: "var(--accent-dim)",
-          background: "#080808",
-        }}
+        className="relative w-full border-b overflow-hidden"
+        style={{ borderColor: "var(--accent-dim)", background: "#080808" }}
       >
-        {gifSrc ? (
-          <img
-            src={gifSrc}
-            alt={name}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+        {imageLayout === "portrait" ? (
+          <div className="relative w-full flex justify-center" style={{ height: "560px" }}>
+            <Image
+              src={imageSrc}
+              alt={name}
+              fill
+              className="object-contain"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         ) : (
-          <span
-            className="px-5 pb-5 text-[9px] tracking-[0.3em] uppercase font-sans"
-            style={{ color: "var(--text-subtle)" }}
-          >
-            Preview incoming
-          </span>
+          <Image
+            src={imageSrc}
+            alt={name}
+            width={800}
+            height={223}
+            sizes="100vw"
+            className="w-full h-auto"
+          />
         )}
       </div>
 
@@ -71,13 +79,13 @@ function FlagshipCard({
         style={{ borderColor: "var(--accent-dim)" }}
       >
         <span
-          className="text-[9px] tracking-[0.3em] uppercase font-sans"
+          className="text-[12px] tracking-[0.3em] uppercase font-sans"
           style={{ color: "var(--text-subtle)" }}
         >
           {index}
         </span>
         <span
-          className="text-[9px] tracking-[0.25em] uppercase font-sans"
+          className="text-[12px] tracking-[0.25em] uppercase font-sans"
           style={{ color: "var(--accent)" }}
         >
           {status}
@@ -93,20 +101,18 @@ function FlagshipCard({
           {name}
         </h3>
         <p
-          className="text-[12px] leading-relaxed font-sans max-w-xs"
+          className="text-[15px] leading-relaxed font-sans max-w-lg"
           style={{ color: "var(--text-muted)" }}
         >
           {tagline}
         </p>
-        {articleUrl && (
+        {articleUrl && articleLabel && (
           <a
             href={articleUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[10px] tracking-[0.2em] uppercase font-sans mt-1 self-start"
+            className="text-[12px] tracking-[0.2em] uppercase font-sans mt-1 self-start transition-colors duration-200 hover:text-accent"
             style={{ color: "var(--accent)" }}
           >
-            Read Article →
+            {articleLabel} →
           </a>
         )}
       </div>
@@ -154,19 +160,19 @@ function LabCard() {
         <div className="flex items-start justify-between gap-4">
           <div className="flex flex-col gap-1 min-w-0">
             <p
-              className="text-[13px] font-medium font-sans"
+              className="text-[15px] font-medium font-sans"
               style={{ color: "var(--text)" }}
             >
               Lab
             </p>
             <p
-              className="text-[11px] leading-relaxed"
+              className="text-[15px] leading-relaxed"
               style={{ color: "var(--text-muted)" }}
             >
               Physics models, cost models, and route logic for every segment of the network. The engineering foundation, made transparent.
             </p>
             <p
-              className="text-[10px] tracking-[0.1em] font-sans mt-1"
+              className="text-[14px] tracking-[0.1em] font-sans mt-1"
               style={{ color: "var(--accent)" }}
             >
               lab.forgehyperloop.com
@@ -175,7 +181,7 @@ function LabCard() {
           <button
             onClick={() => setOpen(!open)}
             aria-label="Toggle modules"
-            className="shrink-0 text-[11px] font-sans transition-colors duration-200 mt-0.5"
+            className="shrink-0 text-[15px] font-sans transition-colors duration-200 mt-0.5"
             style={{ color: open ? "var(--accent)" : "var(--text-subtle)" }}
           >
             {open ? "▲" : "▼"}
@@ -202,13 +208,13 @@ function LabCard() {
                     style={{ borderColor: "var(--accent-dim)" }}
                   >
                     <span
-                      className="text-[12px] font-sans"
+                      className="text-[14px] font-sans"
                       style={{ color: "var(--text-muted)" }}
                     >
                       {mod}
                     </span>
                     <span
-                      className="text-[9px] tracking-[0.25em] uppercase font-sans"
+                      className="text-[15px] tracking-[0.25em] uppercase font-sans"
                       style={{ color: "var(--text-subtle)" }}
                     >
                       Module
@@ -266,13 +272,13 @@ function AppCard({
           className="border border-t-0 px-5 py-4 flex flex-col gap-1"
           style={{ borderColor: "var(--accent-dim)" }}
         >
-          <p className="text-[13px] font-medium font-sans" style={{ color: "var(--text)" }}>
+          <p className="text-[15px] font-medium font-sans" style={{ color: "var(--text)" }}>
             {name}
           </p>
-          <p className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
+          <p className="text-[15px] leading-relaxed" style={{ color: "var(--text-muted)" }}>
             {desc}
           </p>
-          <p className="text-[10px] tracking-[0.1em] font-sans mt-1" style={{ color: "var(--accent)" }}>
+          <p className="text-[14px] tracking-[0.1em] font-sans mt-1" style={{ color: "var(--accent)" }}>
             {url}
           </p>
         </div>
@@ -290,10 +296,10 @@ export default function Projects() {
       <FadeIn variant="left">
         <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
           <span
-            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
+            className="inline-block mt-5 text-[14px] tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
-            03 // Projects
+            04 // Projects
           </span>
         </div>
       </FadeIn>
@@ -311,21 +317,21 @@ export default function Projects() {
       <FadeIn delay={0.12}>
         <div className="border-t mb-3" style={{ borderColor: "var(--accent-dim)" }}>
           <span
-            className="inline-block mt-4 text-[9px] tracking-[0.35em] uppercase font-sans"
+            className="inline-block mt-4 text-[15px] tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
             The Hardware Backbone
           </span>
         </div>
         <p
-          className="text-[13px] leading-relaxed mb-10 font-sans max-w-xl"
+          className="text-[15px] leading-relaxed mb-10 font-sans max-w-xl"
           style={{ color: "var(--text-muted)" }}
         >
           Aether I and Origin I are the physical proof. Two platforms that demonstrate the technology is real, the engineering is done, and the network can be built.
         </p>
       </FadeIn>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+      <div className="flex flex-col gap-8 mb-24">
         {flagship.map((project, i) => (
           <FadeIn key={project.name} delay={0.18 + i * 0.1}>
             <FlagshipCard {...project} />
@@ -337,14 +343,14 @@ export default function Projects() {
       <FadeIn delay={0.1}>
         <div className="border-t mb-3" style={{ borderColor: "var(--accent-dim)" }}>
           <span
-            className="inline-block mt-4 text-[9px] tracking-[0.35em] uppercase font-sans"
+            className="inline-block mt-4 text-[15px] tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
             The Software
           </span>
         </div>
         <p
-          className="text-[13px] leading-relaxed mb-10 font-sans max-w-xl"
+          className="text-[15px] leading-relaxed mb-10 font-sans max-w-xl"
           style={{ color: "var(--text-muted)" }}
         >
           Every simulation, model, and tool built to make the network transparent.

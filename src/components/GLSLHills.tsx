@@ -23,6 +23,8 @@ export function GLSLHills({
 
   useEffect(() => {
     if (!canvasRef.current) return
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const w = (typeof window !== 'undefined' ? window : {}) as Window
 
     class Plane {
       uniforms: { time: { type: string; value: number } }
@@ -148,16 +150,16 @@ export function GLSLHills({
 
     const renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, antialias: false })
     const scene = new THREE.Scene()
-    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 10000)
+    const camera = new THREE.PerspectiveCamera(45, w.innerWidth / w.innerHeight, 1, 10000)
     const clock = new THREE.Clock()
     const plane = new Plane()
     let rafId = 0
 
     const resize = () => {
       if (!canvasRef.current) return
-      camera.aspect = window.innerWidth / window.innerHeight
+      camera.aspect = w.innerWidth / w.innerHeight
       camera.updateProjectionMatrix()
-      renderer.setSize(window.innerWidth, window.innerHeight)
+      renderer.setSize(w.innerWidth, w.innerHeight)
     }
 
     const renderLoop = () => {
@@ -166,17 +168,17 @@ export function GLSLHills({
       rafId = requestAnimationFrame(renderLoop)
     }
 
-    renderer.setSize(window.innerWidth, window.innerHeight)
+    renderer.setSize(w.innerWidth, w.innerHeight)
     renderer.setClearColor(0x000000, 0)
     camera.position.set(0, 16, cameraZ)
     camera.lookAt(new THREE.Vector3(0, 28, 0))
     scene.add(plane.mesh)
-    window.addEventListener('resize', resize)
+    w.addEventListener('resize', resize)
     renderLoop()
 
     return () => {
       cancelAnimationFrame(rafId)
-      window.removeEventListener('resize', resize)
+      w.removeEventListener('resize', resize)
       renderer.dispose()
     }
   }, [cameraZ, planeSize, speed])

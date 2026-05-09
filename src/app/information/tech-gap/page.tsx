@@ -98,6 +98,23 @@ export default function TechGap() {
       <FadeIn>
         <div className="max-w-3xl mx-auto w-full">
 
+          {/* Back button */}
+          <div className="mb-8">
+            <Link
+              href="/information"
+              className="inline-flex items-center text-sm tracking-[0.2em] uppercase transition-colors duration-200 font-sans group"
+              style={{ color: "var(--text-muted)" }}
+            >
+              <span
+                className="mr-2 transform group-hover:-translate-x-1 transition-transform duration-200"
+                style={{ color: "var(--accent)" }}
+              >
+                ←
+              </span>
+              Back to Information
+            </Link>
+          </div>
+
           {/* Label */}
           <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
             <span
@@ -179,10 +196,10 @@ export default function TechGap() {
             {/* Levitation */}
             <div className="border-t pt-7 pb-2 mt-2" style={{ borderColor: "var(--accent-dim)" }}>
               <div className="flex items-baseline gap-6 mb-3">
-                <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "var(--text-subtle)" }}>
+                <span className="text-[14px] tracking-[0.3em] uppercase" style={{ color: "var(--text-subtle)" }}>
                   Layer 1
                 </span>
-                <span className="text-[10px] tracking-[0.15em]" style={{ color: "var(--accent)" }}>
+                <span className="text-[14px] tracking-[0.15em]" style={{ color: "var(--accent)" }}>
                   Magnetic Levitation
                 </span>
               </div>
@@ -205,10 +222,10 @@ export default function TechGap() {
             {/* Vacuum Tube */}
             <div className="border-t pt-7 pb-2 mt-2" style={{ borderColor: "var(--accent-dim)" }}>
               <div className="flex items-baseline gap-6 mb-3">
-                <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "var(--text-subtle)" }}>
+                <span className="text-[14px] tracking-[0.3em] uppercase" style={{ color: "var(--text-subtle)" }}>
                   Layer 2
                 </span>
-                <span className="text-[10px] tracking-[0.15em]" style={{ color: "var(--accent)" }}>
+                <span className="text-[14px] tracking-[0.15em]" style={{ color: "var(--accent)" }}>
                   Vacuum Tube at Scale
                 </span>
               </div>
@@ -243,10 +260,10 @@ export default function TechGap() {
             {/* Lane Switching */}
             <div className="border-t pt-7 pb-2 mt-2" style={{ borderColor: "var(--accent-dim)" }}>
               <div className="flex items-baseline gap-6 mb-3">
-                <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: "var(--text-subtle)" }}>
+                <span className="text-[14px] tracking-[0.3em] uppercase" style={{ color: "var(--text-subtle)" }}>
                   Layer 3
                 </span>
-                <span className="text-[10px] tracking-[0.15em]" style={{ color: "var(--accent)" }}>
+                <span className="text-[14px] tracking-[0.15em]" style={{ color: "var(--accent)" }}>
                   Lane Switching and Network Control
                 </span>
               </div>
@@ -285,7 +302,7 @@ export default function TechGap() {
                       {status}
                     </span>
                     {detail && (
-                      <span className="text-[11px]" style={{ color: "var(--text-subtle)" }}>
+                      <span className="text-[15px]" style={{ color: "var(--text-subtle)" }}>
                         {detail}
                       </span>
                     )}
@@ -371,7 +388,7 @@ export default function TechGap() {
               {sources.map((source) => (
                 <p
                   key={source}
-                  className="text-[12px] leading-[1.7]"
+                  className="text-[14px] leading-[1.7]"
                   style={{ color: "var(--text-subtle)" }}
                 >
                   {source}
@@ -384,7 +401,7 @@ export default function TechGap() {
               className="border-t mt-12 pt-6"
               style={{ borderColor: "var(--accent-dim)" }}
             >
-              <p className="text-[11px]" style={{ color: "var(--text-subtle)" }}>
+              <p className="text-[15px]" style={{ color: "var(--text-subtle)" }}>
                 Forge Hyperloop. Tawfic Shnoudeh, Founder.{" "}
                 <a
                   href="https://forgehyperloop.com"
@@ -436,22 +453,6 @@ export default function TechGap() {
             </Link>
           </div>
 
-          {/* Back */}
-          <div className="mt-8 border-t pt-8" style={{ borderColor: "var(--accent-dim)" }}>
-            <Link
-              href="/information"
-              className="inline-flex items-center text-sm tracking-[0.2em] uppercase transition-colors duration-200 font-sans group"
-              style={{ color: "var(--text)" }}
-            >
-              <span
-                className="mr-2 transform group-hover:-translate-x-1 transition-transform duration-200"
-                style={{ color: "var(--accent)" }}
-              >
-                ←
-              </span>
-              Back to Information
-            </Link>
-          </div>
 
         </div>
       </FadeIn>

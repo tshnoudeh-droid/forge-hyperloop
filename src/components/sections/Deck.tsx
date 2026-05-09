@@ -8,12 +8,21 @@ export default function Deck() {
       <FadeIn variant="left">
         <div className="border-t mb-8" style={{ borderColor: "var(--accent-dim)" }}>
           <span
-            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
+            className="inline-block mt-5 text-[14px] tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
-            05 // Deck
+            06 // Deck
           </span>
         </div>
+      </FadeIn>
+
+      <FadeIn delay={0.05}>
+        <p
+          className="text-[15px] leading-relaxed max-w-sm mb-8 font-sans"
+          style={{ color: "var(--text-muted)" }}
+        >
+          The complete engineering and business case for intercontinental hyperloop cargo.
+        </p>
       </FadeIn>
 
       <FadeIn delay={0.1}>
@@ -29,7 +38,7 @@ export default function Deck() {
             Forge Hyperloop — Pitch Deck
           </span>
           <span
-            className="text-[11px] font-sans transform group-hover:translate-y-0.5 transition-transform duration-200"
+            className="text-[15px] font-sans transform group-hover:translate-y-0.5 transition-transform duration-200"
             style={{ color: "var(--accent)" }}
           >
             ↓ PDF

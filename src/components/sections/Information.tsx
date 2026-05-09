@@ -6,6 +6,13 @@ import { TiltCard } from "@/components/TiltCard";
 
 const articles = [
   {
+    href: "/information/origin-i",
+    title: "Origin I — The Vacuum Chamber",
+    description:
+      "A physical vacuum chamber built from scratch in 30 days. 99.9% vacuum achieved. 1,000x drag reduction at operating pressure.",
+    label: "Build Log",
+  },
+  {
     href: "/information/master-plan",
     title: "The Forge Hyperloop Master Plan",
     description:
@@ -41,7 +48,7 @@ export default function InformationSection() {
             className="inline-block mt-5 text-xs tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
-            04 // Information
+            05 // Information
           </span>
         </div>
       </FadeIn>
@@ -85,7 +92,7 @@ export default function InformationSection() {
                 >
                   <div className="flex flex-col gap-2">
                     <span
-                      className="text-[10px] tracking-[0.3em] uppercase font-sans"
+                      className="text-[14px] tracking-[0.3em] uppercase font-sans"
                       style={{ color: "var(--text-subtle)" }}
                     >
                       {label}

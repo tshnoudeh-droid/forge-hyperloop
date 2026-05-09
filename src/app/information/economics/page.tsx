@@ -66,6 +66,18 @@ export default function Economics() {
     >
       <FadeIn>
         <div className="max-w-3xl mx-auto w-full">
+          {/* Back button */}
+          <div className="mb-8">
+            <Link
+              href="/information"
+              className="inline-flex items-center text-sm tracking-[0.2em] uppercase transition-colors duration-200 font-sans group"
+              style={{ color: "var(--text-muted)" }}
+            >
+              <span className="mr-2 transform group-hover:-translate-x-1 transition-transform duration-200" style={{ color: "var(--accent)" }}>←</span>
+              Back to Information
+            </Link>
+          </div>
+
           {/* Label */}
           <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
             <span
@@ -405,17 +417,6 @@ export default function Economics() {
             </div>
           </div>
 
-          {/* Back */}
-          <div className="mt-16 border-t pt-8" style={{ borderColor: "var(--accent-dim)" }}>
-            <Link
-              href="/information"
-              className="inline-flex items-center text-sm tracking-[0.2em] uppercase transition-colors duration-200 font-sans group"
-              style={{ color: "var(--text)" }}
-            >
-              <span className="mr-2 transform group-hover:-translate-x-1 transition-transform duration-200" style={{ color: "var(--accent)" }}>←</span>
-              Back to Information
-            </Link>
-          </div>
         </div>
       </FadeIn>
     </main>

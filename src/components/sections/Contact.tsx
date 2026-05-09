@@ -33,10 +33,10 @@ export default function Contact() {
         <FadeIn variant="left">
           <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
             <span
-              className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
+              className="inline-block mt-5 text-[14px] tracking-[0.35em] uppercase font-sans"
               style={{ color: "var(--text-subtle)" }}
             >
-              06 // Contact
+              07 // Contact
             </span>
           </div>
         </FadeIn>
@@ -69,7 +69,7 @@ export default function Contact() {
                 style={{ borderColor: "var(--accent-dim)" }}
               >
                 <span
-                  className="text-[10px] tracking-[0.25em] uppercase font-sans"
+                  className="text-[14px] tracking-[0.25em] uppercase font-sans"
                   style={{ color: "var(--text-subtle)" }}
                 >
                   {row.label}
@@ -96,14 +96,14 @@ export default function Contact() {
           style={{ borderColor: "var(--accent-dim)" }}
         >
           <span
-            className="text-[10px] tracking-[0.25em] uppercase font-sans"
+            className="text-[14px] tracking-[0.25em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
             Forge Hyperloop
           </span>
           <SocialIcons />
           <span
-            className="text-[10px] tracking-[0.15em] font-mono"
+            className="text-[14px] tracking-[0.15em] font-mono"
             style={{ color: "var(--text-subtle)" }}
           >
             {new Date().getFullYear()}

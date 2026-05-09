@@ -21,7 +21,7 @@ export default function About() {
       <FadeIn variant="left">
         <div className="border-t mb-12" style={{ borderColor: "var(--accent-dim)" }}>
           <span
-            className="inline-block mt-5 text-[10px] tracking-[0.35em] uppercase font-sans"
+            className="inline-block mt-5 text-[14px] tracking-[0.35em] uppercase font-sans"
             style={{ color: "var(--text-subtle)" }}
           >
             02 // About
@@ -78,7 +78,7 @@ export default function About() {
                   style={{ borderColor: "var(--accent-dim)" }}
                 >
                   <span
-                    className="text-[10px] tracking-[0.25em] uppercase font-sans"
+                    className="text-[14px] tracking-[0.25em] uppercase font-sans"
                     style={{ color: "var(--text-subtle)" }}
                   >
                     {stat.label}
